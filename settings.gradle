@@ -1,0 +1,2 @@
+rootProject.name='Grade Tracker_pj1'
+include ':app'
