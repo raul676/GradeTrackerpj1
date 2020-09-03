@@ -10,14 +10,14 @@ public class GradeCategory {
     @NonNull
     private int category_id;
     private int grade_id;
-    private int weight;
+    private double weight;
     private String title;
     private String assigned_date;
 
     public GradeCategory(){}
 
     @Ignore
-    public GradeCategory(int category_id, int grade_id, int weight, String title, String assigned_date){
+    public GradeCategory(int category_id, int grade_id, double weight, String title, String assigned_date){
         this.category_id= category_id;
         this.grade_id = grade_id;
         this.weight = weight;
@@ -41,7 +41,7 @@ public class GradeCategory {
         this.title = title;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -61,7 +61,7 @@ public class GradeCategory {
         return title;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
