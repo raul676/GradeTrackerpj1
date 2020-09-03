@@ -1,9 +1,7 @@
 package com.example.gradetracker_pj1.model;
-import android.app.Application;
 
 import java.util.List;
 
-import androidx.core.provider.FontsContractCompat;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -25,7 +23,7 @@ public interface GradeDao {
     List<Course> getAllCourses();
 
     @Query("select * from GradeCategory")
-    List<Course> getAllGradeCategorys();
+    List<GradeCategory> getAllGradeCategorys();
 
     @Query("select * from Enrollment")
     List<Enrollment> getAllEnrollments();

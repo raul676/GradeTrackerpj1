@@ -1,5 +1,4 @@
 package com.example.gradetracker_pj1.model;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -9,7 +8,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Assignment.class}, version =1)
+@Database(entities = {Assignment.class,Course.class,Enrollment.class,Grade.class,GradeCategory.class,User.class}, version =1)
 public abstract class GradeRoom extends RoomDatabase {
     private static GradeRoom instance;
 
