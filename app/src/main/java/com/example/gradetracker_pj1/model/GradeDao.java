@@ -11,7 +11,7 @@ import androidx.room.Update;
 @Dao
 public interface GradeDao {
     @Query("select * from User")
-    List<User> getAllUsers();
+    List<User> getAllUser();
 
     @Query("select * from Assignment")
     List<Assignment> getAllAssignments();
