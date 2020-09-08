@@ -41,7 +41,9 @@ public abstract class GradeRoom extends RoomDatabase {
     private void loadUsers(Context context){
         GradeDao dao = getGradeRoom(context).dao();
         User user1 = new User(10000, "raul676", "raulpjp1", "Raul","Perez");
+        User user2 = new User(10001, "athena23", "athena1234", "Athena","Raya");
         dao.addUser(user1);
+        dao.addUser(user2);
         Log.d("GradeRoom", "1 User added to database");
     }
     private void loadAssignment(Context context){
