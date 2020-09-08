@@ -80,6 +80,7 @@ public class Course {
         return start_date;
     }
     @Override
+
     public String toString()
     {
         return "Course Title: " + course_title + "\n" +
