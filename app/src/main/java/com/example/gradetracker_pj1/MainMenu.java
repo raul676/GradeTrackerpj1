@@ -24,8 +24,8 @@ public class MainMenu extends AppCompatActivity {
         Log.d("MainMenu", "onCreate called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar2);
+        //setSupportActionBar(toolbar);
 
         Button edit_button = findViewById(R.id.edit_button);
         Button back_button = findViewById(R.id.back_button);
