@@ -28,6 +28,7 @@ public class MainMenu extends AppCompatActivity {
 
         Button edit_button = findViewById(R.id.edit_button);
         Button back_button = findViewById(R.id.back_button);
+        
 
        edit_button.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -37,13 +38,13 @@ public class MainMenu extends AppCompatActivity {
            }
        });
 
-       /* back_button.setOnClickListener(new View.OnClickListener() {
+      back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenu.this, MainActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
 
