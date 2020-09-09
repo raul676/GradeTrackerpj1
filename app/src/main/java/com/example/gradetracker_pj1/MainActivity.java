@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 User user1 = dao.loginUser(username, password);
                 if(user1 != null)
                 {
-                    Intent intent = new Intent(MainActivity.this, ViewCourseActivity.class);
+
+                    Intent intent = new Intent(MainActivity.this, MainMenu.class);
+
                     startActivity(intent);
                 }
                 else{
@@ -59,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
+
+               }
+
                 }
-            }
+          
         });
 
     }

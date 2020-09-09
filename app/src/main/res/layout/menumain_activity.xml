@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/course_button"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="10dp"
+        android:text="Enrollment"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <Button
+        android:id="@+id/courseView_button"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Courses"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <Button
+            android:id="@+id/edit_button"
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|fill_vertical"
+            android:layout_marginBottom="10dp"
+            android:text="Edit Courses"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="318dp" />
+
+        <Button
+            android:id="@+id/assignment_button"
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|fill_vertical"
+            android:layout_marginBottom="10dp"
+            android:text="Assignments"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="318dp" />
+    <Button
+        android:id="@+id/assignmentEdit_button"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_vertical"
+        android:layout_marginBottom="10dp"
+        android:text="Edit Assignments"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <Button
+        android:id="@+id/gradesView_button"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_vertical"
+        android:layout_marginBottom="10dp"
+        android:text="View Grades"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="318dp" />
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Back"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="457dp" />
+
+</LinearLayout>
