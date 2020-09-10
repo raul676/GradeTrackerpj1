@@ -83,7 +83,7 @@ public class MainMenu extends AppCompatActivity {
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewGradesActivity.class);
                 startActivity(intent);
             }
         });

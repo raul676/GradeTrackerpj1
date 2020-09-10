@@ -49,7 +49,7 @@ public class DeleteCourse extends AppCompatActivity {
                 int course_id = Integer.parseInt(courseID);
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                Course course = dao.deleteCourse(course_id);
+                //Course course = dao.deleteCourse(course_id);
 
                 /*Loop to find course id
                 for (int i = 0; i < courses.size(); i++) {
