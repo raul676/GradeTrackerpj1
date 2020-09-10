@@ -9,12 +9,10 @@ import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainMenu extends AppCompatActivity {
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +20,8 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
 
+        TextView msg = findViewById(R.id.welcome_user_msg);
+       // msg.setText("Welcome " + MainActivity.username);
         /**
          * There is a lot of buttons here: please use them to check if your class loads up (all
          * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also

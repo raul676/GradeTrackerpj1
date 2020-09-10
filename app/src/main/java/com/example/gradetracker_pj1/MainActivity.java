@@ -19,8 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.security.cert.CRLException;
-
 public class MainActivity extends AppCompatActivity {
+    //public static String username;
+   // public static int userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 User user1 = dao.loginUser(username, password);
                 if(user1 != null)
                 {
-
+                    //MainActivity.username = user1.getUsername();
+                    //MainActivity.userid = user1.getUserid();
                     Intent intent = new Intent(MainActivity.this, MainMenu.class);
 
                     startActivity(intent);
@@ -67,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
             }
           
         });
-
 
         Button create_login = findViewById(R.id.create_login_button);
         create_login.setOnClickListener(new View.OnClickListener() {
