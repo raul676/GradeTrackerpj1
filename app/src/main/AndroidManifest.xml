@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
 
+<<<<<<<<< Temporary merge branch 1
         <activity
             android:name=".ViewCourseActivity"
             android:label="@string/app_name"
@@ -31,6 +32,8 @@
             </intent-filter>
         </activity>
 
+=========
+>>>>>>>>> Temporary merge branch 2
     </application>
 
 </manifest>

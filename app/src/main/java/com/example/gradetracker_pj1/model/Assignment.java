@@ -15,20 +15,18 @@ public class Assignment {
     @NonNull
     private int category_id;
     private int max_score;
-    private int earned_score;
     private String details;
     private String assigned_date;
     private String due_date;
 
     public Assignment(){}
     @Ignore
-    public Assignment(int assignment_id, int course_id, int category_id, int max_score, int earned_score,
+    public Assignment(int assignment_id, int course_id, int category_id, int max_score,
                       String details, String assigned_date,String due_date) {
         this.assignment_id = assignment_id;
         this.course_id = course_id;
         this.category_id = category_id;
         this.max_score = max_score;
-        this.earned_score = earned_score;
         this.details = details;
         this.assigned_date = assigned_date;
         this.due_date = due_date;
@@ -37,7 +35,6 @@ public class Assignment {
     public void setCourse_id(@NonNull int course_id){this.course_id = course_id;}
     public void setCategory_id(@NonNull int category_id){this.category_id = category_id;}
     public void setMax_score(int max_score){this.max_score = max_score;}
-    public void setEarned_score(int earned_score){this.earned_score = earned_score;}
     public void setDetails(String details){this.details = details;}
     public void setAssigned_date(String assigned_date){this.assigned_date = assigned_date;}
     public void setDue_date(String due_date) { this.due_date = due_date;}
@@ -52,10 +49,6 @@ public class Assignment {
 
     public int getCourse_id() {
         return course_id;
-    }
-
-    public int getEarned_score() {
-        return earned_score;
     }
 
     public int getMax_score() {
