@@ -55,7 +55,9 @@ public abstract class GradeRoom extends RoomDatabase {
     private void loadCourse(Context context){
         GradeDao dao = getGradeRoom(context).dao();
         Course course1 = new Course(438, "Dr. C", "Software Engineering" ,"Students will work together to work on large scaled software design projects", "8/24/20", "12/16/20" );
+        Course course2 = new Course(383, "Dr. Bruns", "Intro to Data Science" ,"Students will grasp how to analyze data and display data through coding", "8/24/20", "12/16/20" );
         dao.addCourse(course1);
+        dao.addCourse(course2);
         Log.d("GradeRoom", "1 Course added to Database");
     }
     private void loadEnrollment(Context context){

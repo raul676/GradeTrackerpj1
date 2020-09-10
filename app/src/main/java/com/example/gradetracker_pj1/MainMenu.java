@@ -14,8 +14,6 @@ import android.widget.Button;
 public class MainMenu extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("MainMenu", "onCreate called");
@@ -27,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
          * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
          * the Back button needs to be changed to the log out button.
          */
+
         Button edit_button = findViewById(R.id.edit_button);
         Button back_button = findViewById(R.id.back_button);
         Button assignment_button = findViewById(R.id.assignment_button);
