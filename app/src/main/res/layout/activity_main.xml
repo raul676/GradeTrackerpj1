@@ -53,9 +53,26 @@
         android:layout_height="wrap_content"
         android:id="@+id/password"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="273dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_vertical"
         android:text="Login"
         android:id="@+id/loginbutton"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="   "/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text=" If you don't have a login, please create one by pressing the Create Login Button"/>
+
+    <Button
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_vertical"
+        android:text="Create Login"
+        android:id="@+id/create_login_button"/>
 
 </LinearLayout>

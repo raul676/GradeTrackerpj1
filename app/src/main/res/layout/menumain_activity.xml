@@ -78,13 +78,16 @@
         android:text="View Grades"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Back"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="457dp" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Back"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="457dp" />
+
+
 
 </LinearLayout>
