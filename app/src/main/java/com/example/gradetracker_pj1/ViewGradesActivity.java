@@ -39,7 +39,7 @@ import java.util.List;
                 }
             });
 
-            grade = GradeRoom.getGradeRoom(this).dao().getAllGrades();
+           // grade = GradeRoom.getGradeRoom(this).dao().searchGrade(grade_id);
             Log.d("ViewGradesActivity", "Grades" + grade.size());
             RecyclerView rv = findViewById(R.id.recycler_view_2);
             rv.setLayoutManager(new LinearLayoutManager(this));
