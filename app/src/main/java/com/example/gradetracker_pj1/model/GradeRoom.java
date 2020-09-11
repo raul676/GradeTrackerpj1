@@ -31,7 +31,7 @@ public abstract class GradeRoom extends RoomDatabase {
             Log.d("GradeRoom", "loading data");
             loadAssignment(context);
             loadCourse(context);
-            //loadEnrollment(context);
+            loadEnrollment(context);
             loadGradeCategory(context);
             loadUsers(context);
             loadGrade(context);
@@ -132,25 +132,25 @@ public abstract class GradeRoom extends RoomDatabase {
     }
     private void loadGradeCategory(Context context){
         GradeDao dao = getGradeRoom(context).dao();
-        GradeCategory gradeCategory1 = new GradeCategory(438, 10, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory2 = new GradeCategory(438, 20, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory3 = new GradeCategory(438, 30, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory4 = new GradeCategory(438, 40, .25, "Software Engineering", "8/26/20");
+        GradeCategory gradeCategory1 = new GradeCategory(43810, 10, .25, "Software Engineering", "8/26/20");
+        GradeCategory gradeCategory2 = new GradeCategory(43820, 20, .25, "Software Engineering", "8/26/20");
+        GradeCategory gradeCategory3 = new GradeCategory(43830, 30, .25, "Software Engineering", "8/26/20");
+        GradeCategory gradeCategory4 = new GradeCategory(43840, 40, .25, "Software Engineering", "8/26/20");
 
-        GradeCategory gradeCategory5 = new GradeCategory(336, 10, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory6 = new GradeCategory(336, 20, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory7 = new GradeCategory(336, 30, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory8 = new GradeCategory(336, 40, .25, "Internet Programming", "8/26/20");
+        GradeCategory gradeCategory5 = new GradeCategory(33610, 10, .25, "Internet Programming", "8/26/20");
+        GradeCategory gradeCategory6 = new GradeCategory(33620, 20, .25, "Internet Programming", "8/26/20");
+        GradeCategory gradeCategory7 = new GradeCategory(33630, 30, .25, "Internet Programming", "8/26/20");
+        GradeCategory gradeCategory8 = new GradeCategory(33640, 40, .25, "Internet Programming", "8/26/20");
 
-        GradeCategory gradeCategory9 = new GradeCategory(334, 10, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory10 = new GradeCategory(334, 20, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory11 = new GradeCategory(334, 30, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory12 = new GradeCategory(334, 40, .25, "Operating Systems", "8/26/20");
+        GradeCategory gradeCategory9 = new GradeCategory(33410, 10, .25, "Operating Systems", "8/26/20");
+        GradeCategory gradeCategory10 = new GradeCategory(33420, 20, .25, "Operating Systems", "8/26/20");
+        GradeCategory gradeCategory11 = new GradeCategory(33430, 30, .25, "Operating Systems", "8/26/20");
+        GradeCategory gradeCategory12 = new GradeCategory(33440, 40, .25, "Operating Systems", "8/26/20");
 
-        GradeCategory gradeCategory13 = new GradeCategory(462, 10, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory14 = new GradeCategory(462, 20, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory15 = new GradeCategory(462, 30, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory16 = new GradeCategory(462, 40, .25, "Race Gender & Class Digital World", "8/26/20");
+        GradeCategory gradeCategory13 = new GradeCategory(46210, 10, .25, "Race Gender & Class Digital World", "8/26/20");
+        GradeCategory gradeCategory14 = new GradeCategory(46220, 20, .25, "Race Gender & Class Digital World", "8/26/20");
+        GradeCategory gradeCategory15 = new GradeCategory(46230, 30, .25, "Race Gender & Class Digital World", "8/26/20");
+        GradeCategory gradeCategory16 = new GradeCategory(46240, 40, .25, "Race Gender & Class Digital World", "8/26/20");
 
         dao.addGradeCategory(gradeCategory1);
         dao.addGradeCategory(gradeCategory2);

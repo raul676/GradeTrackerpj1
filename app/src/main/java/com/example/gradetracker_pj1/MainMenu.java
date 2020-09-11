@@ -1,6 +1,8 @@
 package com.example.gradetracker_pj1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.gradetracker_pj1.model.GradeRoom;
 
 
 public class MainMenu extends AppCompatActivity {
@@ -48,7 +52,7 @@ public class MainMenu extends AppCompatActivity {
         courseView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
                 startActivity(intent);
             }
         });
@@ -94,7 +98,7 @@ public class MainMenu extends AppCompatActivity {
       back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, MainActivity.class);
+                Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
                 startActivity(intent);
             }
         });
