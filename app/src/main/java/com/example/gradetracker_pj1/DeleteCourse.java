@@ -2,7 +2,6 @@ package com.example.gradetracker_pj1;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,14 +13,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Delete;
 
-
 import com.example.gradetracker_pj1.model.Course;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
-import com.example.gradetracker_pj1.model.User;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DeleteCourse extends AppCompatActivity {
@@ -59,14 +54,15 @@ public class DeleteCourse extends AppCompatActivity {
                     }
                 }
 
-                    //if they want to get rid of it
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("This course will be deleted ");
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
-                            GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
+                            GradeRoom.getGradeRoom(DeleteCourse.this).dao();
+                           // GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
                             startActivity(intent);
                         }

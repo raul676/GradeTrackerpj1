@@ -13,18 +13,16 @@ import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity {
 
-
+    /**
+     * This method contains all the buttons for the user to click to navigate through the app, each button leads to a new page
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("MainMenu", "onCreate called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
 
-        /**
-         * There is a lot of buttons here: please use them to check if your class loads up (all
-         * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
-         * the Back button needs to be changed to the log out button.
-         */
 
         Button edit_button = findViewById(R.id.edit_button);
         Button back_button = findViewById(R.id.back_button);
@@ -47,7 +45,7 @@ public class MainMenu extends AppCompatActivity {
         courseView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,13 +81,13 @@ public class MainMenu extends AppCompatActivity {
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, ViewGradesActivity.class);
-                startActivity(intent);
+               // Intent intent = new Intent(MainMenu.this, ViewGradesActivity.class);
+                //startActivity(intent);
             }
         });
 
 
-      //change this to logout
+      //Logout button
       back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
