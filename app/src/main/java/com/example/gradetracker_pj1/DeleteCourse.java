@@ -49,32 +49,26 @@ public class DeleteCourse extends AppCompatActivity {
                 int course_id = Integer.parseInt(courseID);
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                //Course course = dao.deleteCourse(course_id);
+                Course course = dao.searchCourse(course_id);
 
-                /*Loop to find course id
+                //Loop to find course id
                 for (int i = 0; i < courses.size(); i++) {
-                    if (course.get(course_id).getCourse().equals(course_id)) {
+                    if (courses.get(course_id).getCourse_id() == course_id) {
                     } else {
-                        course.remove(i);
+                        courses.remove(i);
                     }
-                }*/
+                }
 
                     //if they want to get rid of it
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
-                    builder.setTitle("Are you sure you want to delete this course ?");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    builder.setTitle("This course will be deleted ");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
                             GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-
+                            Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
+                            startActivity(intent);
                         }
                     });
 

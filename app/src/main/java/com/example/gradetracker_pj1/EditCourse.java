@@ -25,8 +25,8 @@ public class EditCourse extends AppCompatActivity {
         add_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent(EditCourse.this, addCourse.class);
-                //startActivity(intent);
+               Intent intent = new Intent(EditCourse.this, AddCourse.class);
+                startActivity(intent);
             }
         });
 
@@ -42,7 +42,7 @@ public class EditCourse extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //not sure about main act lead back just yet need to update this code
-            Intent intent = new Intent(EditCourse.this, MainActivity.class);
+            Intent intent = new Intent(EditCourse.this, MainMenu.class);
             startActivity(intent);
         }
     });
