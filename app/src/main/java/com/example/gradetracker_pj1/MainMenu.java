@@ -1,9 +1,11 @@
 package com.example.gradetracker_pj1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -24,7 +26,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
 
-        TextView msg = findViewById(R.id.welcome_user_msg);
+        //TextView msg = findViewById(R.id.welcome_user_msg);
        // msg.setText("Welcome " + MainActivity.username);
         /**
          * There is a lot of buttons here: please use them to check if your class loads up (all
@@ -32,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
          * the Back button needs to be changed to the log out button.
          */
         Button edit_button = findViewById(R.id.edit_button);
-        Button back_button = findViewById(R.id.back_button);
+        Button logout_button = findViewById(R.id.logout_button);
         Button assignment_button = findViewById(R.id.assignment_button);
         Button assignmentEdit_button = findViewById(R.id.assignmentEdit_button);
         Button gradesView_button = findViewById(R.id.gradesView_button);
@@ -95,11 +97,32 @@ public class MainMenu extends AppCompatActivity {
 
 
       //change this to logout
-      back_button.setOnClickListener(new View.OnClickListener() {
+      logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainMenu.this);
+                builder.setTitle("Are you sure you want to log out?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //finish();
+                        Intent intent = new Intent(MainMenu.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do nothing
+                    }
+                });
+
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                
+                /*Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
+                startActivity(intent);*/
             }
         });
     }

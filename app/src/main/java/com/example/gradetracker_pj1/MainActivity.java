@@ -48,8 +48,18 @@ public class MainActivity extends AppCompatActivity {
                 {
                     //MainActivity.username = user1.getUsername();
                    // MainActivity.userid = user1.getUserid();
-                    Intent intent = new Intent(MainActivity.this, MainMenu.class);
-                    startActivity(intent);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Welcome, " + user1.getFirst_name() + "!");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                            Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                            startActivity(intent);
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

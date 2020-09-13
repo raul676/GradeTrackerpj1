@@ -23,11 +23,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:scaleY="2"
         android:scaleX="2"
-        android:text="Main Menu"/>
+        android:text="Welcome to Grade App!"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
         android:id="@+id/loginbutton_main"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="10dp"
         android:text="   "/>
     <TextView
         android:layout_width="match_parent"
