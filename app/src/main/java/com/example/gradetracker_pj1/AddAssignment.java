@@ -48,11 +48,15 @@ public class AddAssignment extends AppCompatActivity {
                 Assignment assignment;
                 try {
 
+                    assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString()), Integer.parseInt(courseId.getText().toString()), Integer.parseInt(categoryId.getText().toString()),Integer.parseInt(maxScore.getText().toString()), Integer.parseInt(earnedScore.getText().toString()), details.getText().toString(), assignedDate.getText().toString(), dueDate.getText().toString());
+
                  //   assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString(), Integer.parseInt(courseId.getText().toString(), Integer.parseInt(categoryId.getText().toString(),Integer.parseInt(maxScore.getText().toString(), Integer.parseInt(earnedScore.getText().toString(), details.getText().toString(), Integer.parseInt(assignedDate.getText().toString(), Integer.parseInt(dueDate.getText().toString())));
 
                   //  Toast.makeText(AddAssignment.this, assignment.toString(), Toast.LENGTH_SHORT).show();
 
+
                    // assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString(), Integer.parseInt(courseId.getText().toString(), Integer.parseInt(categoryId.getText().toString(),Integer.parseInt(maxScore.getText().toString(), Integer.parseInt(earnedScore.getText().toString(), details.getText().toString(), Integer.parseInt(assignedDate.getText().toString(), Integer.parseInt(dueDate.getText().toString())))))));
+
 
                    // Toast.makeText(AddAssignment.this, assignment.toString(), Toast.LENGTH_SHORT).show();
 
