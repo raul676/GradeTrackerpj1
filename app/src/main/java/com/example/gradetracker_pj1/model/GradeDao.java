@@ -58,6 +58,7 @@ public interface GradeDao {
     @Delete
     void deleteCourse(Course course);
 
+
     @Delete
     void deleteGrade(Grade grade);
 
