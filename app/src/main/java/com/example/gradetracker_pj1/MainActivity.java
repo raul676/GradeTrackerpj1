@@ -1,22 +1,22 @@
 package com.example.gradetracker_pj1;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
+
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 import com.example.gradetracker_pj1.model.User;
 
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 
 import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         GradeRoom.getGradeRoom(MainActivity.this).loadData(this);
 
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
           
         });
+
 
 
         Button create_login = findViewById(R.id.create_login_button);
