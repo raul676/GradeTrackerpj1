@@ -30,6 +30,7 @@
 
 
         <TextView
+            android:id="@+id/textVewCourseID"
             android:layout_width="300dp"
             android:layout_height="29dp"
             android:layout_gravity="center_horizontal"
