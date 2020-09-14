@@ -1,5 +1,6 @@
 package com.example.gradetracker_pj1;
 
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,10 +17,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+
 import com.example.gradetracker_pj1.model.GradeRoom;
 
 
 public class MainMenu extends AppCompatActivity {
+
 
 
     @Override
@@ -27,6 +30,15 @@ public class MainMenu extends AppCompatActivity {
         Log.d("MainMenu", "onCreate called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
+
+        TextView msg = findViewById(R.id.welcome_user_msg);
+       // msg.setText("Welcome " + MainActivity.username);
+        /**
+         * There is a lot of buttons here: please use them to check if your class loads up (all
+         * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
+         * the Back button needs to be changed to the log out button.
+         */
+
 
 
         //TextView msg = findViewById(R.id.welcome_user_msg);
@@ -53,6 +65,7 @@ public class MainMenu extends AppCompatActivity {
         courseView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
                 startActivity(intent);
             }
@@ -71,16 +84,16 @@ public class MainMenu extends AppCompatActivity {
         assignment_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewAssignmentsActivity.class);
                 startActivity(intent);
             }
         });
 
-        //edit assignments
+        //add assignments
         assignmentEdit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, AddAssignment.class);
                 startActivity(intent);
             }
         });
@@ -89,11 +102,12 @@ public class MainMenu extends AppCompatActivity {
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent(MainMenu.this, ViewGradesActivity.class);
-                //startActivity(intent);
+
+                Intent intent = new Intent(MainMenu.this, ViewGradeActivity.class);
+                startActivity(intent);
+
             }
         });
-
 
 
       logout_button.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +136,7 @@ public class MainMenu extends AppCompatActivity {
                 
                 /*Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
                 startActivity(intent);*/
+
             }
         });
     }

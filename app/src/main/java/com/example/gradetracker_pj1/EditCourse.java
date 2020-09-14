@@ -26,8 +26,10 @@ public class EditCourse extends AppCompatActivity {
         add_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                Intent intent = new Intent(EditCourse.this, AddCourse.class);
                 startActivity(intent);
+
             }
         });
 
