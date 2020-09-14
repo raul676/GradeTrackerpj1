@@ -23,7 +23,7 @@ import java.util.List;
 
 public class DeleteCourse extends AppCompatActivity {
 
-    List<Course> courses;
+    List<Course> deleteCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +41,14 @@ public class DeleteCourse extends AppCompatActivity {
                 Log.d("DeleteCourse", "Enter the Course id");
 
                 EditText id = findViewById(R.id.courseID);
-                String course = id.getText().toString();
-                int course_id =Integer.parseInt(course);
+                String coursenum = id.getText().toString();
+                int course_id =Integer.parseInt(coursenum);
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
-                Course course1 = dao.searchCourse(course_id);
+               // course = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
+                //Course deletecourse = dao.searchCourse(course_id);
 
-                if (course != null) {
+                if (coursenum != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("This course will be deleted ");
@@ -57,8 +57,9 @@ public class DeleteCourse extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
                          GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                            dao.deleteCourse(course1);
+                            dao.deleteCourse(course_id);
                             Log.d("DeleteCourse", "deletingcourse");
+                            //once deleting go to main menu
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
                             startActivity(intent);
                         }
