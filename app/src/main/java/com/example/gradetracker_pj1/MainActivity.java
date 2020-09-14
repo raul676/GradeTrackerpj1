@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     //MainActivity.username = user1.getUsername();
                     //MainActivity.userid = user1.getUserid();
 
-                   // MainActivity.userid = user1.getUserid();
+                   MainActivity.userid = user1.getUserid();
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("Welcome, " + user1.getFirst_name() + "!");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
