@@ -117,11 +117,12 @@ public abstract class GradeRoom extends RoomDatabase {
         Course course336= new Course(336, "Dr. Lara", "Internet Programming" ,"Students will learn how to Design Websites using HTML CSS & Java Script", "8/24/20", "12/16/20" );
         Course course334 = new Course(334, "Dr. Islam", "Operating Systems" ,"Students will learn Linux and C to learn how an OS works", "8/24/20", "12/16/20" );
         Course course462 = new Course(462, "Dr. Robertson", "Race Gender & Class Digital World" ,"Students will group together to discuss Race Gender and other controversial topics", "8/24/20", "12/16/20" );
-
+        Course course464 = new Course(464, "Dr. Robertson", "Race Gender & Class Digital World" ,"Students will group together to discuss Race Gender and other controversial topics", "8/24/20", "12/16/20" );
         dao.addCourse(course438);
         dao.addCourse(course336);
         dao.addCourse(course334);
         dao.addCourse(course462);
+        dao.addCourse(course464);
         Log.d("GradeRoom", "4 Course added to Database");
     }
     private void loadEnrollment(Context context){
