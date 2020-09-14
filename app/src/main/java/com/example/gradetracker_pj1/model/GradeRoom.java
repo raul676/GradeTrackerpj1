@@ -31,7 +31,7 @@ public abstract class GradeRoom extends RoomDatabase {
             Log.d("GradeRoom", "loading data");
             loadAssignment(context);
             loadCourse(context);
-            loadEnrollment(context);
+            //loadEnrollment(context);
             loadGradeCategory(context);
             loadUsers(context);
             loadGrade(context);
@@ -124,7 +124,6 @@ public abstract class GradeRoom extends RoomDatabase {
         dao.addCourse(course462);
         dao.addCourse(course464);
         Log.d("GradeRoom", "4 Course added to Database");
-
     }
     private void loadEnrollment(Context context){
         GradeDao dao = getGradeRoom(context).dao();
@@ -134,6 +133,7 @@ public abstract class GradeRoom extends RoomDatabase {
     }
     private void loadGradeCategory(Context context){
         GradeDao dao = getGradeRoom(context).dao();
+
         GradeCategory gradeCategory1 = new GradeCategory(43810, 10, .25, "Software Engineering", "8/26/20");
         GradeCategory gradeCategory2 = new GradeCategory(43820, 20, .25, "Software Engineering", "8/26/20");
         GradeCategory gradeCategory3 = new GradeCategory(43830, 30, .25, "Software Engineering", "8/26/20");
@@ -153,6 +153,7 @@ public abstract class GradeRoom extends RoomDatabase {
         GradeCategory gradeCategory14 = new GradeCategory(46220, 20, .25, "Race Gender & Class Digital World", "8/26/20");
         GradeCategory gradeCategory15 = new GradeCategory(46230, 30, .25, "Race Gender & Class Digital World", "8/26/20");
         GradeCategory gradeCategory16 = new GradeCategory(46240, 40, .25, "Race Gender & Class Digital World", "8/26/20");
+
 
         dao.addGradeCategory(gradeCategory1);
         dao.addGradeCategory(gradeCategory2);

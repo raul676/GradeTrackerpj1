@@ -21,15 +21,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity = "center"
                 android:textSize="30sp"
                 android:id="@+id/welcome_user_msg"
@@ -37,64 +36,58 @@
 
             <Button
                 android:id="@+id/course_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="Enrollment"
-                tools:layout_editor_absoluteX="78dp"
-                tools:layout_editor_absoluteY="187dp" />
+               />
 
             <Button
                 android:id="@+id/courseView_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:text="Courses"
-                tools:layout_editor_absoluteX="78dp"
-                tools:layout_editor_absoluteY="187dp" />
+                />
 
             <Button
                 android:id="@+id/edit_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|fill_vertical"
                 android:layout_marginBottom="10dp"
                 android:text="Edit Courses"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="318dp" />
+               />
 
             <Button
                 android:id="@+id/assignment_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|fill_vertical"
                 android:layout_marginBottom="10dp"
                 android:text="Assignments"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="318dp" />
+              />
             <Button
                 android:id="@+id/assignmentEdit_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|fill_vertical"
                 android:layout_marginBottom="10dp"
                 android:text="Edit Assignments"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="318dp" />
+                 />
 
             <Button
                 android:id="@+id/gradesView_button"
-                android:layout_width="273dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|fill_vertical"
                 android:layout_marginBottom="10dp"
                 android:text="View Grades"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="318dp" />
+                />
 
             <Button
                 android:id="@+id/logout_button"
@@ -102,11 +95,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Logout"
-                tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="457dp" />
-
+             />
         </LinearLayout>
 
     </ScrollView>
+
+
 
 </LinearLayout>
