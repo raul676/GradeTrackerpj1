@@ -15,10 +15,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import com.example.gradetracker_pj1.model.GradeRoom;
 
 
 public class MainMenu extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +28,10 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
 
+
         //TextView msg = findViewById(R.id.welcome_user_msg);
        // msg.setText("Welcome " + MainActivity.username);
-        /**
-         * There is a lot of buttons here: please use them to check if your class loads up (all
-         * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
-         * the Back button needs to be changed to the log out button.
-         */
+  
         Button edit_button = findViewById(R.id.edit_button);
         Button logout_button = findViewById(R.id.logout_button);
         Button assignment_button = findViewById(R.id.assignment_button);
@@ -90,13 +89,13 @@ public class MainMenu extends AppCompatActivity {
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
-                startActivity(intent);
+               // Intent intent = new Intent(MainMenu.this, ViewGradesActivity.class);
+                //startActivity(intent);
             }
         });
 
 
-      //change this to logout
+
       logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
