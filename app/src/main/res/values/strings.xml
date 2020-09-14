@@ -21,4 +21,5 @@
     <string name="end_date">End Date</string>
     <string name="submit">SUBMIT</string>
     <string name="assignment_id">Assignment ID</string>
+    <string name = "course_id">course_id</string>
 </resources>
