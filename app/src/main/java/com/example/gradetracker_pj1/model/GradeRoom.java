@@ -25,7 +25,7 @@ public abstract class GradeRoom extends RoomDatabase {
 
 
     public void loadData(Context context){
-        List<User> user_list = GradeRoom.getGradeRoom(context).dao().getAllUsers();
+        List<User> user_list = GradeRoom.getGradeRoom(context).dao().getAllUser();
         if(user_list.size() ==0)
         {
             Log.d("GradeRoom", "loading data");
