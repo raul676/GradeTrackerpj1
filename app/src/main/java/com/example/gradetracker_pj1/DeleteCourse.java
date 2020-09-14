@@ -39,39 +39,40 @@ public class DeleteCourse extends AppCompatActivity {
                 Log.d("DeleteCourse", "Enter the Course id");
 
                 EditText id = findViewById(R.id.courseID);
-                String courseID = id.getText().toString();
+                String course_id = id.getText().toString();
 
-                int course_id = Integer.parseInt(courseID);
+               // int course_id = Integer.parseInt(courseID);
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                Course course = dao.searchCourse(course_id);
+               // Course course = dao.searchCourse(course_id);
 
                 //Loop to find course id
-                for (int i = 0; i < courses.size(); i++) {
+              /*  for (int i = 0; i < courses.size(); i++) {
                     if (courses.get(course_id).getCourse_id() == course_id) {
                     } else {
                         courses.remove(i);
                     }
-                }
-
-
+                }*/
+                if (course_id != null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("This course will be deleted ");
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
-                            GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                           // GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
+                         GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
+                            Log.d("DeleteCourse", "deletingcourse");
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
                             startActivity(intent);
                         }
-                    });
 
+                    });
                     AlertDialog dialog = builder.create();
                     dialog.show();
 
+
                 }
+            }
 
 
         });
@@ -79,3 +80,4 @@ public class DeleteCourse extends AppCompatActivity {
 
     }
 }
+
