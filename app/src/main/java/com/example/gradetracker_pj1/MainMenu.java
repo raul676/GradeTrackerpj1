@@ -38,8 +38,7 @@ public class MainMenu extends AppCompatActivity {
          * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
          * the Back button needs to be changed to the log out button.
          */
-        Button edit_button = findViewById(R.id.edit_button);
-        Button back_button = findViewById(R.id.back_button);
+
 
 
         //TextView msg = findViewById(R.id.welcome_user_msg);
@@ -85,16 +84,16 @@ public class MainMenu extends AppCompatActivity {
         assignment_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewAssignmentsActivity.class);
                 startActivity(intent);
             }
         });
 
-        //edit assignments
+        //add assignments
         assignmentEdit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, AddAssignment.class);
                 startActivity(intent);
             }
         });
@@ -104,7 +103,7 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewGradeActivity.class);
                 startActivity(intent);
 
             }
