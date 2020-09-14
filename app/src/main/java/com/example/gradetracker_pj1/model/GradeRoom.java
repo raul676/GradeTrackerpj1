@@ -123,6 +123,7 @@ public abstract class GradeRoom extends RoomDatabase {
         dao.addCourse(course334);
         dao.addCourse(course462);
         Log.d("GradeRoom", "4 Course added to Database");
+
     }
     private void loadEnrollment(Context context){
         GradeDao dao = getGradeRoom(context).dao();
