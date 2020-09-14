@@ -19,7 +19,7 @@ public class User {
     @NonNull
     private String last_name;
 
-    public User(String athenag23, String s){}
+    public User(){}
     @Ignore
     public User(int userid, String username, String password,String first_name, String last_name){
         this.username=username;

@@ -18,7 +18,7 @@ public class AddAssignmentTest {
         assertEquals(100, assignment.getMax_score());
         assertEquals(80, assignment.getEarned_score());
         assertEquals("details", assignment.getDetails());
-        assertEquals("01/01/2020", assignment.getAssigned_date());
+        assertEquals("01/01/2021", assignment.getAssigned_date());
         assertEquals("01/06/2021", assignment.getDue_date());
 
     }
