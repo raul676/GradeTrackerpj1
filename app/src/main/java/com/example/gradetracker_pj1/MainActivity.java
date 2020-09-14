@@ -21,8 +21,8 @@ import android.widget.EditText;
 import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
 
-    public static String username = null;
-    public static int userid;
+    public static String username= "";
+    public static int userid=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 User user1 = dao.loginUser(username, password);
                 if(user1 != null)
                 {
-                    //MainActivity.username = user1.getUsername();
-                   // MainActivity.userid = user1.getUserid();
+                    MainActivity.username = user1.getFirst_name() + " " + user1.getLast_name();
+                    MainActivity.userid = user1.getUserid();
                     Intent intent = new Intent(MainActivity.this, MainMenu.class);
                     startActivity(intent);
                 }

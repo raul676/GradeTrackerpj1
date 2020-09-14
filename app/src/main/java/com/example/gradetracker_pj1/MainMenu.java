@@ -25,7 +25,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.menumain_activity);
 
         TextView msg = findViewById(R.id.welcome_user_msg);
-       // msg.setText("Welcome " + MainActivity.username);
+        msg.setText("Welcome " + MainActivity.username);
         /**
          * There is a lot of buttons here: please use them to check if your class loads up (all
          * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
@@ -35,7 +35,6 @@ public class MainMenu extends AppCompatActivity {
         Button back_button = findViewById(R.id.back_button);
         Button assignment_button = findViewById(R.id.assignment_button);
         Button assignmentEdit_button = findViewById(R.id.assignmentEdit_button);
-        Button gradesView_button = findViewById(R.id.gradesView_button);
         Button courseView_button = findViewById(R.id.courseView_button);
         Button course_button = findViewById(R.id.courseView_button);
 
@@ -85,10 +84,11 @@ public class MainMenu extends AppCompatActivity {
         });
 
         //view grades
+        Button gradesView_button = findViewById(R.id.gradesView_button);
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewGradeActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +98,7 @@ public class MainMenu extends AppCompatActivity {
       back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, ViewCourseActivity.class);
+                Intent intent = new Intent(MainMenu.this, MainActivity.class);
                 startActivity(intent);
             }
         });
