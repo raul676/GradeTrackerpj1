@@ -2,8 +2,14 @@ package com.example.gradetracker_pj1;
 
 import android.os.Bundle;
 
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import com.example.gradetracker_pj1.model.GradeDao;
+import com.example.gradetracker_pj1.model.GradeRoom;
+import com.example.gradetracker_pj1.model.User;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,8 +18,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
+    //public static String username;
+   // public static int userid;
 
+    public static String username = null;
+    public static int userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +32,75 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        GradeRoom.getGradeRoom(MainActivity.this).loadData(this);
+
+        Button login_button = findViewById(R.id.loginbutton_main);
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText user = findViewById(R.id.username_main);
+                EditText pass = findViewById(R.id.password_main);
+
+                String username = user.getText().toString();
+                String password = pass.getText().toString();
+
+                GradeDao dao = GradeRoom.getGradeRoom(MainActivity.this).dao();
+                User user1 = dao.loginUser(username, password);
+                if(user1 != null)
+                {
+                    //MainActivity.username = user1.getUsername();
+                    //MainActivity.userid = user1.getUserid();
+
+                   MainActivity.userid = user1.getUserid();
+
+                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Welcome, " + user1.getFirst_name() + "!");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                            Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                            startActivity(intent);
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+                }
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("No user found.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+               }
+
+            }
+          
+        });
+
+
+
+        Button create_login = findViewById(R.id.create_login_button);
+
+       /* Button create_login = findViewById(R.id.create_login_button);
+
+        create_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CreateLoginActivity.class);
+                startActivity(intent);
+            }
+    });
+
+        });*/
 
     }
 

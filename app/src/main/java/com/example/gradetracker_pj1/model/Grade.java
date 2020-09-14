@@ -7,7 +7,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 @Entity
 public class Grade {
-    @PrimaryKey (autoGenerate = true)
+    @PrimaryKey (autoGenerate = false)
     @NonNull
     private int grade_id;
     @NonNull
