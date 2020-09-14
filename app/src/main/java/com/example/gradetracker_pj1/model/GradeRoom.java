@@ -7,6 +7,7 @@ import java.util.List;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.Update;
 
 @Database(entities = {Assignment.class,Course.class,Enrollment.class,Grade.class,GradeCategory.class,User.class}, version =1)
 public abstract class GradeRoom extends RoomDatabase {
@@ -31,7 +32,7 @@ public abstract class GradeRoom extends RoomDatabase {
             Log.d("GradeRoom", "loading data");
             loadAssignment(context);
             loadCourse(context);
-            //loadEnrollment(context);
+            loadEnrollment(context);
             loadGradeCategory(context);
             loadUsers(context);
             loadGrade(context);
@@ -117,43 +118,72 @@ public abstract class GradeRoom extends RoomDatabase {
         Course course336= new Course(336, "Dr. Lara", "Internet Programming" ,"Students will learn how to Design Websites using HTML CSS & Java Script", "8/24/20", "12/16/20" );
         Course course334 = new Course(334, "Dr. Islam", "Operating Systems" ,"Students will learn Linux and C to learn how an OS works", "8/24/20", "12/16/20" );
         Course course462 = new Course(462, "Dr. Robertson", "Race Gender & Class Digital World" ,"Students will group together to discuss Race Gender and other controversial topics", "8/24/20", "12/16/20" );
-        Course course464 = new Course(464, "Dr. Robertson", "Race Gender & Class Digital World" ,"Students will group together to discuss Race Gender and other controversial topics", "8/24/20", "12/16/20" );
+
         dao.addCourse(course438);
         dao.addCourse(course336);
         dao.addCourse(course334);
         dao.addCourse(course462);
-        dao.addCourse(course464);
         Log.d("GradeRoom", "4 Course added to Database");
     }
+    @Update
     private void loadEnrollment(Context context){
         GradeDao dao = getGradeRoom(context).dao();
-        Enrollment enrollment1 = new Enrollment(462,10000, "8/20/20");
+        //Only for raul, he will be enrolled.
+        Enrollment enrollment1 = new Enrollment(46200,462,10000, "8/20/20");
+
+        Enrollment enrollment2 = new Enrollment(43000,438,10000, "8/20/20");
+        Enrollment enrollment3 = new Enrollment(43801,438,10001, "8/20/20");
+        Enrollment enrollment4 = new Enrollment(43802,438,10002, "8/20/20");
+        Enrollment enrollment5 = new Enrollment(43803,438,10003, "8/20/20");
+
+        Enrollment enrollment6 = new Enrollment(33400,334,10000, "8/20/20");
+        Enrollment enrollment7 = new Enrollment(33401,334,10001, "8/20/20");
+        Enrollment enrollment8 = new Enrollment(33402,334,10002, "8/20/20");
+        Enrollment enrollment9 = new Enrollment(33403,334,10003, "8/20/20");
+
+        Enrollment enrollment10 = new Enrollment(33600, 336,10000, "8/20/20");
+        Enrollment enrollment11 = new Enrollment(33601, 336,10001, "8/20/20");
+        Enrollment enrollment12 = new Enrollment(33602, 336,10002, "8/20/20");
+        Enrollment enrollment13 = new Enrollment(33603,336,10003, "8/20/20");
+
+
         dao.addEnrollment(enrollment1);
-        Log.d("GradeRoom", "1 Enrollment added to Database");
+        dao.addEnrollment(enrollment2);
+        dao.addEnrollment(enrollment3);
+        dao.addEnrollment(enrollment4);
+        dao.addEnrollment(enrollment5);
+        dao.addEnrollment(enrollment6);
+        dao.addEnrollment(enrollment7);
+        dao.addEnrollment(enrollment8);
+        dao.addEnrollment(enrollment9);
+        dao.addEnrollment(enrollment10);
+        dao.addEnrollment(enrollment11);
+        dao.addEnrollment(enrollment12);
+        dao.addEnrollment(enrollment13);
+
+        Log.d("GradeRoom", "13 Enrollment added to Database");
     }
     private void loadGradeCategory(Context context){
         GradeDao dao = getGradeRoom(context).dao();
+        GradeCategory gradeCategory1 = new GradeCategory(43810, 10, .25, "Software Engineering", "8/26/20",438);
+        GradeCategory gradeCategory2 = new GradeCategory(43820, 20, .25, "Software Engineering", "8/26/20",438);
+        GradeCategory gradeCategory3 = new GradeCategory(43830, 30, .25, "Software Engineering", "8/26/20",438);
+        GradeCategory gradeCategory4 = new GradeCategory(43840, 40, .25, "Software Engineering", "8/26/20",438);
 
-        GradeCategory gradeCategory1 = new GradeCategory(43810, 10, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory2 = new GradeCategory(43820, 20, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory3 = new GradeCategory(43830, 30, .25, "Software Engineering", "8/26/20");
-        GradeCategory gradeCategory4 = new GradeCategory(43840, 40, .25, "Software Engineering", "8/26/20");
+        GradeCategory gradeCategory5 = new GradeCategory(33610, 10, .25, "Internet Programming", "8/26/20",336);
+        GradeCategory gradeCategory6 = new GradeCategory(33620, 20, .25, "Internet Programming", "8/26/20",336);
+        GradeCategory gradeCategory7 = new GradeCategory(33630, 30, .25, "Internet Programming", "8/26/20",336);
+        GradeCategory gradeCategory8 = new GradeCategory(33640, 40, .25, "Internet Programming", "8/26/20",336);
 
-        GradeCategory gradeCategory5 = new GradeCategory(33610, 10, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory6 = new GradeCategory(33620, 20, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory7 = new GradeCategory(33630, 30, .25, "Internet Programming", "8/26/20");
-        GradeCategory gradeCategory8 = new GradeCategory(33640, 40, .25, "Internet Programming", "8/26/20");
+        GradeCategory gradeCategory9 = new GradeCategory(33410, 10, .25, "Operating Systems", "8/26/20",334);
+        GradeCategory gradeCategory10 = new GradeCategory(33420, 20, .25, "Operating Systems", "8/26/20",334);
+        GradeCategory gradeCategory11 = new GradeCategory(33430, 30, .25, "Operating Systems", "8/26/20",334);
+        GradeCategory gradeCategory12 = new GradeCategory(33440, 40, .25, "Operating Systems", "8/26/20",334);
 
-        GradeCategory gradeCategory9 = new GradeCategory(33410, 10, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory10 = new GradeCategory(33420, 20, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory11 = new GradeCategory(33430, 30, .25, "Operating Systems", "8/26/20");
-        GradeCategory gradeCategory12 = new GradeCategory(33440, 40, .25, "Operating Systems", "8/26/20");
-
-        GradeCategory gradeCategory13 = new GradeCategory(46210, 10, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory14 = new GradeCategory(46220, 20, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory15 = new GradeCategory(46230, 30, .25, "Race Gender & Class Digital World", "8/26/20");
-        GradeCategory gradeCategory16 = new GradeCategory(46240, 40, .25, "Race Gender & Class Digital World", "8/26/20");
-
+        GradeCategory gradeCategory13 = new GradeCategory(46210, 10, .25, "Race Gender & Class Digital World", "8/26/20",462);
+        GradeCategory gradeCategory14 = new GradeCategory(46220, 20, .25, "Race Gender & Class Digital World", "8/26/20",462);
+        GradeCategory gradeCategory15 = new GradeCategory(46230, 30, .25, "Race Gender & Class Digital World", "8/26/20",462);
+        GradeCategory gradeCategory16 = new GradeCategory(46240, 40, .25, "Race Gender & Class Digital World", "8/26/20",462);
 
         dao.addGradeCategory(gradeCategory1);
         dao.addGradeCategory(gradeCategory2);
@@ -177,99 +207,99 @@ public abstract class GradeRoom extends RoomDatabase {
     private void loadGrade(Context context){
         GradeDao dao = getGradeRoom(context).dao();
         // Grades for Course 438
-        Grade raul1 = new Grade(10, 4, 43810, 438, 10000, "12/15/20" );
-        Grade raul2 = new Grade(10, 3, 43811, 438, 10000, "12/16/20" );
-        Grade raul3 = new Grade(20, 1, 43820, 438, 10000, "12/15/20" );
-        Grade raul4 = new Grade(20, 5, 43821, 438, 10000, "12/15/20" );
-        Grade raul5 = new Grade(30, 6, 43830, 438, 10000, "12/15/20" );
-        Grade raul6 = new Grade(40, 4, 43840, 438, 10000, "12/15/20" );
+        Grade raul1 = new Grade(1,10, 4, 43810, 438, 10000, "12/15/20" );
+        Grade raul2 = new Grade(2,10, 3, 43811, 438, 10000, "12/16/20" );
+        Grade raul3 = new Grade(3,20, 1, 43820, 438, 10000, "12/15/20" );
+        Grade raul4 = new Grade(4,20, 5, 43821, 438, 10000, "12/15/20" );
+        Grade raul5 = new Grade(5,30, 6, 43830, 438, 10000, "12/15/20" );
+        Grade raul6 = new Grade(6,40, 4, 43840, 438, 10000, "12/15/20" );
 
-        Grade emory1 = new Grade(10, 7, 43810, 438, 10003, "12/15/20" );
-        Grade emory2 = new Grade(10, 9, 43811, 438, 10003, "12/16/20" );
-        Grade emory3 = new Grade(20, 10, 43820, 438, 10003, "12/15/20" );
-        Grade emory4 = new Grade(20, 7, 43821, 438, 10003, "12/15/20" );
-        Grade emory5 = new Grade(30, 8, 43830, 438, 10003, "12/15/20" );
-        Grade emory6 = new Grade(40, 9, 43840, 438, 10003, "12/15/20" );
+        Grade emory1 = new Grade(7,10, 7, 43810, 438, 10003, "12/15/20" );
+        Grade emory2 = new Grade(8,10, 9, 43811, 438, 10003, "12/16/20" );
+        Grade emory3 = new Grade(9,20, 10, 43820, 438, 10003, "12/15/20" );
+        Grade emory4 = new Grade(10,20, 7, 43821, 438, 10003, "12/15/20" );
+        Grade emory5 = new Grade(11,30, 8, 43830, 438, 10003, "12/15/20" );
+        Grade emory6 = new Grade(12,40, 9, 43840, 438, 10003, "12/15/20" );
 
-        Grade daniel1 = new Grade(10, 9, 43810, 438, 10002, "12/15/20" );
-        Grade daniel2 = new Grade(10, 9, 43811, 438, 10002, "12/16/20" );
-        Grade daniel3 = new Grade(20, 10, 43820, 438, 10002, "12/15/20" );
-        Grade daniel4 = new Grade(20, 10, 43821, 438, 10002, "12/15/20" );
-        Grade daniel5 = new Grade(30, 8, 43830, 438, 10002, "12/15/20" );
-        Grade daniel6 = new Grade(40, 7, 43840, 438, 10002, "12/15/20" );
+        Grade daniel1 = new Grade(13,10, 9, 43810, 438, 10002, "12/15/20" );
+        Grade daniel2 = new Grade(14,10, 9, 43811, 438, 10002, "12/16/20" );
+        Grade daniel3 = new Grade(15,20, 10, 43820, 438, 10002, "12/15/20" );
+        Grade daniel4 = new Grade(16,20, 10, 43821, 438, 10002, "12/15/20" );
+        Grade daniel5 = new Grade(17,30, 8, 43830, 438, 10002, "12/15/20" );
+        Grade daniel6 = new Grade(18,40, 7, 43840, 438, 10002, "12/15/20" );
 
-        Grade athena1 = new Grade(10, 8, 43810, 438, 10001, "12/15/20" );
-        Grade athena2 = new Grade(10, 9, 43811, 438, 10001, "12/16/20" );
-        Grade athena3 = new Grade(20, 10, 43820, 438, 10001, "12/15/20" );
-        Grade athena4 = new Grade(20, 5, 43821, 438, 10001, "12/15/20" );
-        Grade athena5 = new Grade(30, 6, 43830, 438, 10001, "12/15/20" );
-        Grade athena6 = new Grade(40, 7, 43840, 438, 10001, "12/15/20" );
+        Grade athena1 = new Grade(19,10, 8, 43810, 438, 10001, "12/15/20" );
+        Grade athena2 = new Grade(20,10, 9, 43811, 438, 10001, "12/16/20" );
+        Grade athena3 = new Grade(21,20, 10, 43820, 438, 10001, "12/15/20" );
+        Grade athena4 = new Grade(22,20, 5, 43821, 438, 10001, "12/15/20" );
+        Grade athena5 = new Grade(23,30, 6, 43830, 438, 10001, "12/15/20" );
+        Grade athena6 = new Grade(24,40, 7, 43840, 438, 10001, "12/15/20" );
 
         //Grades for Course 336
-        Grade raul7 = new Grade(10, 2, 33610, 336, 10000, "12/15/20" );
-        Grade raul8 = new Grade(10, 7, 33611, 336, 10000, "12/16/20" );
-        Grade raul9 = new Grade(20, 6, 33620, 336, 10000, "12/15/20" );
-        Grade raul10 = new Grade(20, 4, 33621, 336, 10000, "12/15/20" );
-        Grade raul11 = new Grade(30, 3, 33630, 336, 10000, "12/15/20" );
-        Grade raul12 = new Grade(40, 2, 33640, 336, 10000, "12/15/20" );
+        Grade raul7 = new Grade(25,10, 2, 33610, 336, 10000, "12/15/20" );
+        Grade raul8 = new Grade(26,10, 7, 33611, 336, 10000, "12/16/20" );
+        Grade raul9 = new Grade(27,20, 6, 33620, 336, 10000, "12/15/20" );
+        Grade raul10 = new Grade(28,20, 4, 33621, 336, 10000, "12/15/20" );
+        Grade raul11 = new Grade(29,30, 3, 33630, 336, 10000, "12/15/20" );
+        Grade raul12 = new Grade(30,40, 2, 33640, 336, 10000, "12/15/20" );
 
-        Grade emory7 = new Grade(10, 8, 33610, 336, 10003, "12/15/20" );
-        Grade emory8 = new Grade(10, 10, 33611, 336, 10003, "12/16/20" );
-        Grade emory9 = new Grade(20, 7, 33620, 336, 10003, "12/15/20" );
-        Grade emory10 = new Grade(20, 9, 33621, 336, 10003, "12/15/20" );
-        Grade emory11 = new Grade(30, 8, 33630, 336, 10003, "12/15/20" );
-        Grade emory12 = new Grade(40, 9, 33640, 336, 10003, "12/15/20" );
+        Grade emory7 = new Grade(31,10, 8, 33610, 336, 10003, "12/15/20" );
+        Grade emory8 = new Grade(32,10, 10, 33611, 336, 10003, "12/16/20" );
+        Grade emory9 = new Grade(33,20, 7, 33620, 336, 10003, "12/15/20" );
+        Grade emory10 = new Grade(34,20, 9, 33621, 336, 10003, "12/15/20" );
+        Grade emory11 = new Grade(35,30, 8, 33630, 336, 10003, "12/15/20" );
+        Grade emory12 = new Grade(36,40, 9, 33640, 336, 10003, "12/15/20" );
 
-        Grade daniel7 = new Grade(10, 7, 33610, 336, 10002, "12/15/20" );
-        Grade daniel8 = new Grade(10, 6, 33611, 336, 10002, "12/16/20" );
-        Grade daniel9 = new Grade(20, 10, 33620, 336, 10002, "12/15/20" );
-        Grade daniel10 = new Grade(20, 9, 33621, 336, 10002, "12/15/20" );
-        Grade daniel11 = new Grade(30, 8, 33630, 336, 10002, "12/15/20" );
-        Grade daniel12 = new Grade(40, 9, 33640, 336, 10002, "12/15/20" );
+        Grade daniel7 = new Grade(37,10, 7, 33610, 336, 10002, "12/15/20" );
+        Grade daniel8 = new Grade(38,10, 6, 33611, 336, 10002, "12/16/20" );
+        Grade daniel9 = new Grade(39,20, 10, 33620, 336, 10002, "12/15/20" );
+        Grade daniel10 = new Grade(40,20, 9, 33621, 336, 10002, "12/15/20" );
+        Grade daniel11 = new Grade(41,30, 8, 33630, 336, 10002, "12/15/20" );
+        Grade daniel12 = new Grade(42,40, 9, 33640, 336, 10002, "12/15/20" );
 
-        Grade athena7 = new Grade(10, 4, 33610, 336, 10001, "12/15/20" );
-        Grade athena8 = new Grade(10, 10, 33611, 336, 10001, "12/16/20" );
-        Grade athena9 = new Grade(20, 7, 33620, 336, 10001, "12/15/20" );
-        Grade athena10 = new Grade(20, 8, 33621, 336, 10001, "12/15/20" );
-        Grade athena11 = new Grade(30, 8, 33630, 336, 10001, "12/15/20" );
-        Grade athena12 = new Grade(40, 7, 33640, 336, 10001, "12/15/20" );
+        Grade athena7 = new Grade(43,10, 4, 33610, 336, 10001, "12/15/20" );
+        Grade athena8 = new Grade(44,10, 10, 33611, 336, 10001, "12/16/20" );
+        Grade athena9 = new Grade(45,20, 7, 33620, 336, 10001, "12/15/20" );
+        Grade athena10 = new Grade(46,20, 8, 33621, 336, 10001, "12/15/20" );
+        Grade athena11 = new Grade(47,30, 8, 33630, 336, 10001, "12/15/20" );
+        Grade athena12 = new Grade(48,10, 7, 33640, 336, 10001, "12/15/20" );
 
         // Grades for Course 334
-        Grade raul13 = new Grade(10, 3, 33410, 334, 10000, "12/15/20" );
-        Grade raul14 = new Grade(10, 4, 33411, 334, 10000, "12/16/20" );
-        Grade raul15 = new Grade(20, 3, 33420, 334, 10000, "12/15/20" );
-        Grade raul16 = new Grade(20, 4, 33421, 334, 10000, "12/15/20" );
-        Grade raul17 = new Grade(30, 3, 33430, 334, 10000, "12/15/20" );
-        Grade raul18 = new Grade(40, 5, 33440, 334, 10000, "12/15/20" );
+        Grade raul13 = new Grade(49,10, 3, 33410, 334, 10000, "12/15/20" );
+        Grade raul14 = new Grade(50,10, 4, 33411, 334, 10000, "12/16/20" );
+        Grade raul15 = new Grade(51,20, 3, 33420, 334, 10000, "12/15/20" );
+        Grade raul16 = new Grade(52,20, 4, 33421, 334, 10000, "12/15/20" );
+        Grade raul17 = new Grade(53,30, 3, 33430, 334, 10000, "12/15/20" );
+        Grade raul18 = new Grade(54,40, 5, 33440, 334, 10000, "12/15/20" );
 
-        Grade emory13 = new Grade(10, 6, 33410, 334, 10003, "12/15/20" );
-        Grade emory14 = new Grade(10, 7, 33411, 334, 10003, "12/16/20" );
-        Grade emory15 = new Grade(20, 7, 33420, 334, 10003, "12/15/20" );
-        Grade emory16 = new Grade(20, 8, 33421, 334, 10003, "12/15/20" );
-        Grade emory17 = new Grade(30, 8, 33430, 334, 10003, "12/15/20" );
-        Grade emory18 = new Grade(40, 5, 33440, 334, 10003, "12/15/20" );
+        Grade emory13 = new Grade(55,10, 6, 33410, 334, 10003, "12/15/20" );
+        Grade emory14 = new Grade(56,10, 7, 33411, 334, 10003, "12/16/20" );
+        Grade emory15 = new Grade(57,20, 7, 33420, 334, 10003, "12/15/20" );
+        Grade emory16 = new Grade(58,20, 8, 33421, 334, 10003, "12/15/20" );
+        Grade emory17 = new Grade(59,30, 8, 33430, 334, 10003, "12/15/20" );
+        Grade emory18 = new Grade(60,40, 5, 33440, 334, 10003, "12/15/20" );
 
-        Grade daniel13 = new Grade(10, 8, 33410, 334, 10002, "12/15/20" );
-        Grade daniel14 = new Grade(10, 6, 33411, 334, 10002, "12/16/20" );
-        Grade daniel15 = new Grade(20, 4, 33420, 334, 10002, "12/15/20" );
-        Grade daniel16 = new Grade(20, 9, 33421, 334, 10002, "12/15/20" );
-        Grade daniel17 = new Grade(30, 3, 33430, 334, 10002, "12/15/20" );
-        Grade daniel18 = new Grade(40, 7, 33440, 334, 10002, "12/15/20" );
+        Grade daniel13 = new Grade(61,10, 8, 33410, 334, 10002, "12/15/20" );
+        Grade daniel14 = new Grade(62,10, 6, 33411, 334, 10002, "12/16/20" );
+        Grade daniel15 = new Grade(63,20, 4, 33420, 334, 10002, "12/15/20" );
+        Grade daniel16 = new Grade(64,20, 9, 33421, 334, 10002, "12/15/20" );
+        Grade daniel17 = new Grade(65,30, 3, 33430, 334, 10002, "12/15/20" );
+        Grade daniel18 = new Grade(66,40, 7, 33440, 334, 10002, "12/15/20" );
 
-        Grade athena13 = new Grade(10, 2, 33410, 334, 10001, "12/15/20" );
-        Grade athena14 = new Grade(10, 8, 33411, 334, 10001, "12/16/20" );
-        Grade athena15 = new Grade(20, 7, 33420, 334, 10001, "12/15/20" );
-        Grade athena16 = new Grade(20, 4, 33421, 334, 10001, "12/15/20" );
-        Grade athena17 = new Grade(30, 8, 33430, 334, 10001, "12/15/20" );
-        Grade athena18 = new Grade(40, 9, 33440, 334, 10001, "12/15/20" );
+        Grade athena13 = new Grade(67,10, 2, 33410, 334, 10001, "12/15/20" );
+        Grade athena14 = new Grade(68,10, 8, 33411, 334, 10001, "12/16/20" );
+        Grade athena15 = new Grade(69,20, 7, 33420, 334, 10001, "12/15/20" );
+        Grade athena16 = new Grade(70,20, 4, 33421, 334, 10001, "12/15/20" );
+        Grade athena17 = new Grade(71,30, 8, 33430, 334, 10001, "12/15/20" );
+        Grade athena18 = new Grade(72,40, 9, 33440, 334, 10001, "12/15/20" );
 
         // Grades for Course 462  ONLY Raul will have grades since he's the only one enrolled.
-        Grade raul19 = new Grade(10, 4, 46210, 462, 10000, "12/15/20" );
-        Grade raul20 = new Grade(10, 3, 46211, 462, 10000, "12/16/20" );
-        Grade raul21 = new Grade(20, 8, 46220, 462, 10000, "12/15/20" );
-        Grade raul22 = new Grade(20, 7, 46221, 462, 10000, "12/15/20" );
-        Grade raul23 = new Grade(30, 9, 46230, 462, 10000, "12/15/20" );
-        Grade raul24 = new Grade(40, 10, 46240, 462, 10000, "12/15/20" );
+        Grade raul19 = new Grade(73,10, 4, 46210, 462, 10000, "12/15/20" );
+        Grade raul20 = new Grade(74,10, 3, 46211, 462, 10000, "12/16/20" );
+        Grade raul21 = new Grade(75,20, 8, 46220, 462, 10000, "12/15/20" );
+        Grade raul22 = new Grade(76,20, 7, 46221, 462, 10000, "12/15/20" );
+        Grade raul23 = new Grade(77,30, 9, 46230, 462, 10000, "12/15/20" );
+        Grade raul24 = new Grade(78,40, 10, 46240, 462, 10000, "12/15/20" );
 
         dao.addGrade(raul1);
         dao.addGrade(raul2);
