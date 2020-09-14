@@ -20,6 +20,8 @@ import android.widget.EditText;
 
 import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
+    //public static String username;
+   // public static int userid;
 
     public static String username = null;
     public static int userid;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 if(user1 != null)
                 {
                     //MainActivity.username = user1.getUsername();
+                    //MainActivity.userid = user1.getUserid();
+
                    // MainActivity.userid = user1.getUserid();
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("Welcome, " + user1.getFirst_name() + "!");
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
+
                 }
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -79,14 +84,21 @@ public class MainActivity extends AppCompatActivity {
           
         });
 
+
+        Button create_login = findViewById(R.id.create_login_button);
+
        /* Button create_login = findViewById(R.id.create_login_button);
+
         create_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CreateLoginActivity.class);
                 startActivity(intent);
             }
+    });
+
         });*/
+
     }
 
     @Override

@@ -14,11 +14,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gradetracker_pj1.model.Course;
+import com.example.gradetracker_pj1.model.Assignment;
+import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.GradeRoom;
 
-public class ViewDueDatesActivity extends AppCompatActivity {
-    List<String> dueDates;
+public class ViewAssignmentsActivity extends AppCompatActivity {
+    List<String> assignments;
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -32,37 +33,46 @@ public class ViewDueDatesActivity extends AppCompatActivity {
         return_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("ViewDueDatesActivity", "onClick return called");
+                Log.d("ViewAssignmentsActivity", "onClick return called");
                 finish();
             }
         });
 
-        List<Course> courses = GradeRoom.getGradeRoom(this).dao().getAllCourses();
-        for(Course i : courses) {
-            dueDates.add(i.getCourse_id() + " Ends on " + i.getEnd_date());
-        }
-        Log.d("ViewDueDatesActivity", "Courses's" + dueDates.size());
+        // Get all the assignments
+        List<Assignment> assignments = GradeRoom.getGradeRoom(this).dao().getAllAssignments();
+        // get their end dates
+        Log.d("ViewAssignmentsActivity", "Assignments's" + assignments.size());
+        //show it on screen
         RecyclerView rv = findViewById(R.id.recycler_view_2);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new ViewDueDatesActivity.Adapter());
+        rv.setAdapter(new ViewAssignmentsActivity.Adapter());
 
     }
 
-    private class Adapter extends RecyclerView.Adapter<ViewDueDatesActivity.ItemHolder> {
+    /*
+     * Adapter is a RecyclerView for ItemHolders
+     */
+    private class Adapter extends RecyclerView.Adapter<ViewAssignmentsActivity.ItemHolder> {
 
+        /*
+         * Constructor
+         */
         @Override
-        public ViewDueDatesActivity.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType){
-            LayoutInflater layoutInflater = LayoutInflater.from(ViewDueDatesActivity.this);
-            return new ViewDueDatesActivity.ItemHolder(layoutInflater, parent);
+        public ViewAssignmentsActivity.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType){
+            LayoutInflater layoutInflater = LayoutInflater.from(ViewAssignmentsActivity.this);
+            return new ViewAssignmentsActivity.ItemHolder(layoutInflater, parent);
+        }
+
+        /*
+         * bind the items to the holder
+         */
+        @Override
+        public void onBindViewHolder(ViewAssignmentsActivity.ItemHolder holder, int position){
+            holder.bind(assignments.get(position));
         }
 
         @Override
-        public void onBindViewHolder(ViewDueDatesActivity.ItemHolder holder, int position){
-            holder.bind(dueDates.get(position));
-        }
-
-        @Override
-        public int getItemCount() { return dueDates.size(); }
+        public int getItemCount() { return assignments.size(); }
     }
 
     private class ItemHolder extends RecyclerView.ViewHolder {

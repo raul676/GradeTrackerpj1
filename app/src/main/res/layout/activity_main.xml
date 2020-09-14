@@ -54,7 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/password_main"/>
-    <Button
+ 
+     <Button
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
