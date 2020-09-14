@@ -63,7 +63,7 @@ public interface GradeDao {
     void addUser(User user);
 
     @Delete
-    void deleteCourse(Course course);
+    List<Course> deleteCourse(int course_id);
 
 
     @Delete
