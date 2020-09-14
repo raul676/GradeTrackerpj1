@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class EditCourse extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("EditCourse", "onCreate called");
