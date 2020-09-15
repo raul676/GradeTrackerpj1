@@ -6,7 +6,6 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 @Dao
 public interface GradeDao {
@@ -37,11 +36,19 @@ public interface GradeDao {
     @Query("select * from Assignment where assignment_id=:assignment_id")
     Assignment searchAssignment(int assignment_id);
 
-    @Query("select * from Grade where grade_id=:grade_id and student_id =:student_id and assignment_id =:assignment_id")
-    Grade searchGrade(int grade_id, int student_id,int assignment_id);
+    @Query("select * from Grade where course_id =:course_id and student_id =:student_id")
+    List<Grade> searchGrades(int course_id, int student_id);
 
-    @Query("select * from GradeCategory where grade_id=:grade_id and category_id=:category_id ")
-    GradeCategory searchGradeCategory(int grade_id , int category_id);
+    @Query("select * from Grade where course_id=:course_id and student_id =:student_id")
+    Grade searchGrade(int course_id, int student_id);
+
+
+    @Query("select * from GradeCategory where course_id=:course_id ")
+    List<GradeCategory> searchGradeCategory(int course_id );
+
+    @Query("select * from Enrollment where  student_id=:student_id")
+    List <Enrollment> searchEnrolledCourse( int student_id );
+
     @Insert
     void addAssignment(Assignment assignment);
     @Insert
@@ -56,7 +63,7 @@ public interface GradeDao {
     void addUser(User user);
 
     @Delete
-    void deleteCourse(Course course);
+    void deleteCourse(Course course_id);
 
     @Delete
     void deleteGrade(Grade grade);
@@ -66,4 +73,6 @@ public interface GradeDao {
 
     @Delete
     void deleteAssignment(Assignment assignment);
+    @Delete
+    void deleteGrades(List<Grade> grades);
 }

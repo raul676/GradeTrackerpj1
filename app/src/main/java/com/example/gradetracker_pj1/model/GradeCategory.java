@@ -13,16 +13,17 @@ public class GradeCategory {
     private double weight;
     private String title;
     private String assigned_date;
-
+    private int course_id;
     public GradeCategory(){}
 
     @Ignore
-    public GradeCategory(int category_id, int grade_id, double weight, String title, String assigned_date){
+    public GradeCategory(int category_id, int grade_id, double weight, String title, String assigned_date,int course_id){
         this.category_id= category_id;
         this.grade_id = grade_id;
         this.weight = weight;
         this.title = title;
         this.assigned_date =assigned_date;
+        this.course_id = course_id;
     }
 
     public void setGrade_id(int grade_id) {
@@ -65,6 +66,8 @@ public class GradeCategory {
         return weight;
     }
 
+    public void setCourse_id(int course_id){this.course_id = course_id;}
+    public int getCourse_id(){return course_id;}
     @Override
     public String toString() {
         return "Grade Title: " + title + "\n" +

@@ -4,25 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 @Entity
 public class Enrollment {
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    private int course_id;
+    private int enrollment_id;
     @NonNull
     private int student_id;
-    @NonNull
+
+    private int course_id;
     private String enrollment_date;
 
     public Enrollment(){}
     @Ignore
-    public Enrollment(int course_id, int student_id, String enrollment_date){
+    public Enrollment(int enrollment_id, int course_id, int student_id, String enrollment_date){
+        this.enrollment_id = enrollment_id;
         this.course_id= course_id;
         this.student_id = student_id;
         this.enrollment_date = enrollment_date;
     }
 
-    public void setEnrollment_date(@NonNull String enrollment_date) {
+    public void setEnrollment_date( String enrollment_date) {
         this.enrollment_date = enrollment_date;
     }
 
@@ -42,9 +45,19 @@ public class Enrollment {
         return student_id;
     }
 
-    @NonNull
     public String getEnrollment_date() {
         return enrollment_date;
+    }
+
+    public void setEnrollment_id(int enrollment_id){this.enrollment_id = enrollment_id;}
+    public int getEnrollment_id(){return enrollment_id;}
+
+    @Override
+    public String toString(){
+
+        return "Course ID: " + course_id + "\n"+
+                "Enrollment Date: " +enrollment_date;
+
     }
 
 }

@@ -7,7 +7,9 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 @Entity
 public class Grade {
-    @PrimaryKey (autoGenerate = false)
+    @PrimaryKey (autoGenerate = true)
+    @NonNull
+    private int grade_tracker;
     @NonNull
     private int grade_id;
     @NonNull
@@ -21,7 +23,8 @@ public class Grade {
 
     public Grade(){}
     @Ignore
-    public Grade(int grade_id , int score, int assignment_id, int course_id, int student_id,String date_earned){
+    public Grade(int grade_tracker,int grade_id , int score, int assignment_id, int course_id, int student_id,String date_earned){
+        this.grade_tracker = grade_tracker;
         this.grade_id = grade_id;
         this.score = score;
         this.assignment_id = assignment_id;
@@ -38,6 +41,8 @@ public class Grade {
         this.course_id = course_id;
     }
 
+    public void setGrade_tracker(int grade_tracker){this.grade_tracker = grade_tracker;}
+    public int getGrade_tracker(){return grade_tracker;}
     public void setAssignment_id(int assignment_id) {
         this.assignment_id = assignment_id;
     }
@@ -80,8 +85,18 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade Score: " +score + "\n" +
+        return "Grade Score (Letter): " +returnLetterGrade(score) + "\n" +
                 "Date Earned: " +date_earned + "\n" +
-                "Student ID: " +student_id;
+                "Student ID: " +student_id + "\n" +
+                "Grade Score: " + score;
+    }
+
+    public String returnLetterGrade(int score)
+    {
+        if(score >=9){return "A";}
+        if(score ==8){return "B";}
+        if(score ==7){return "C";}
+        if(score ==6){return "D";}
+        else return "F";
     }
 }

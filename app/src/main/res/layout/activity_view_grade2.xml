@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -24,45 +25,46 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="22dp"
+        android:id="@+id/grade_text_course"
         android:background="@color/design_default_color_secondary"
-        android:text="Here are your current courses you are enrolled in. Please Enter the 'Class ID' of the class Grade you'd like to see."/>
-
+        android:text=""/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_grades"
+        android:id="@+id/recycler_view_grades_category"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_weight="1" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:background="@color/design_default_color_secondary"
+        android:text="Here are your Grades Per Assignment. "/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_grades_2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_weight="1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity = "center"
-        android:textSize="30dp"
-        android:id="@+id/gpa_student"
-        android:text = "Please Enter Course ID Here"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text = "Enter Course ID Here"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/course_id_text"/>
-
+        android:background="@color/design_default_color_secondary"
+        android:textSize="18dp"
+        android:id="@+id/grade_letter"
+        android:text=""/>
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/back_button_grade"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "View Course Grades"
-        android:id="@+id/course_id_button"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_menu_grades"
-        android:text="main Menu"/>
+        android:layout_gravity="center"
+        android:text="Back"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="457dp" />
 
 
 </LinearLayout>
