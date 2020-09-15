@@ -42,7 +42,7 @@ public class EditCourse extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //not sure about main act lead back just yet need to update this code
-            Intent intent = new Intent(EditCourse.this, MainActivity.class);
+            Intent intent = new Intent(EditCourse.this, MainMenu.class);
             startActivity(intent);
         }
     });
