@@ -23,7 +23,7 @@ import java.util.List;
 
 public class DeleteCourse extends AppCompatActivity {
 
-    List<Course> deleteCourse;
+    List<Course> courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +41,20 @@ public class DeleteCourse extends AppCompatActivity {
                 Log.d("DeleteCourse", "Enter the Course id");
 
                 EditText id = findViewById(R.id.courseID);
-                String coursenum = id.getText().toString();
-                int course_id =Integer.parseInt(coursenum);
+                String course = id.getText().toString();
+                int course_id =Integer.parseInt(course);
+
+                try {
+                    Integer.parseInt(course);
+                } catch (NumberFormatException e ){
+                    id.setError("wrong Input");
+                }
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-               // course = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
-                Course deletecourse = dao.searchCourse(course_id);
+                courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
+                Course course1 = dao.searchCourse(course_id);
 
-                if (coursenum != null) {
+                if (course != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("This course will be deleted ");
@@ -56,10 +62,10 @@ public class DeleteCourse extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
-                         GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                            dao.deleteCourse(deletecourse);
+                            GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
+                            dao.deleteCourse(course1);
+                            //dao.deleteAssignment(course1);
                             Log.d("DeleteCourse", "deletingcourse");
-                            //once deleting go to main menu
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
                             startActivity(intent);
                         }
@@ -78,4 +84,3 @@ public class DeleteCourse extends AppCompatActivity {
 
     }
 }
-
