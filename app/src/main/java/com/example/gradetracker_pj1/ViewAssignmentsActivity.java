@@ -19,7 +19,7 @@ import com.example.gradetracker_pj1.model.GradeRoom;
 import java.util.List;
 
 public class ViewAssignmentsActivity extends AppCompatActivity {
-    List<String> assignments;
+    List<Assignment> assignments;
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -87,7 +87,7 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
             super(inflater.inflate(R.layout.item, parent, false));
         }
 
-        public void bind(String f ) {
+        public void bind(Assignment f ) {
             TextView item = itemView.findViewById(R.id.item_id);
             item.setText(f.toString());
         }

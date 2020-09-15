@@ -18,10 +18,7 @@ public class AddCourse extends AppCompatActivity{
     EditText courseId, instructor, course_title, startDate, description, endDate;
     Button submit;
 
-    GradeDao gradeDao;
-
-
-
+    GradeDao gradeDao = GradeRoom.getGradeRoom(this).dao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){ // starts application
@@ -33,8 +30,11 @@ public class AddCourse extends AppCompatActivity{
         courseId = findViewById(R.id.course_id);
         instructor = findViewById(R.id.instructor_name);
         course_title = findViewById(R.id.course_title);
+        description = findViewById(R.id.Discription);
         startDate = findViewById(R.id.startDate);
         endDate = findViewById(R.id.endDate);
+
+
         submit = findViewById(R.id.btnAddCourse);
 
         // button listener
@@ -42,23 +42,32 @@ public class AddCourse extends AppCompatActivity{
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Course course;
                 try {
+                    if(gradeDao.searchCourse(Integer.parseInt(courseId.getText().toString())) != null)
+                    {
+                        Toast.makeText(AddCourse.this,"Course ID already exists ", Toast.LENGTH_SHORT).show(); // non integer input
+                    }
+                    else {
+                        Course course = new Course(Integer.parseInt(courseId.getText().toString()), instructor.getText().toString(), course_title.getText().toString(), description.getText().toString(), startDate.getText().toString(), endDate.getText().toString());
+                        gradeDao.addCourse(course);
 
-                    course = new Course(Integer.parseInt(courseId.getText().toString()), instructor.getText().toString(), course_title.getText().toString(), description.getText().toString(), startDate.getText().toString(), endDate.getText().toString());
-
-                    Toast.makeText(AddCourse.this, course.toString(), Toast.LENGTH_SHORT).show();
-                    // Toast.makeText(AddCourse.this, "submit button works", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddCourse.this, course.toString(), Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(AddCourse.this, "submit button works", Toast.LENGTH_SHORT).show();
+                    }
 
                 } catch (Exception e) {
                     Toast.makeText(AddCourse.this,"Error ", Toast.LENGTH_SHORT).show(); // non integer input
-                    course = new Course(-1,"error","error","error","error","error"); // default values
+                   // course = new Course(-1,"error","error","error","error","error"); // default values
                 }
 
+            }
+        });
 
-               gradeDao.addCourse(course);
-
-
+        Button back_button = findViewById(R.id.back_button_add);
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
