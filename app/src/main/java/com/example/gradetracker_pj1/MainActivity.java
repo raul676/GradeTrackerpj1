@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static String username= "";
     public static int userid=0;
+    public static final String admin_user = "dr.sithlord";
+    public static final String admin_password = "dr.sithlord";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
+                boolean is_true = false;
+
+                if(username.equals(MainActivity.admin_user) && password.equals(MainActivity.admin_password))
+                {
+                    Intent intent = new Intent(MainActivity.this, AdminMenu.class);
+                    startActivity(intent);
+                    is_true= true;
+                }
+
 
                 GradeDao dao = GradeRoom.getGradeRoom(MainActivity.this).dao();
                 User user1 = dao.loginUser(username, password);
@@ -51,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, MainMenu.class);
                     startActivity(intent);
                 }
-                else{
+                else if(!is_true){
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("No user found.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

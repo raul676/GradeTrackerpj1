@@ -46,7 +46,7 @@ public class DeleteCourse extends AppCompatActivity {
 
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                // course = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
-                //Course deletecourse = dao.searchCourse(course_id);
+                Course deletecourse = dao.searchCourse(course_id);
 
                 if (coursenum != null) {
 
@@ -57,7 +57,7 @@ public class DeleteCourse extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
                          GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
-                            dao.deleteCourse(course_id);
+                            dao.deleteCourse(deletecourse);
                             Log.d("DeleteCourse", "deletingcourse");
                             //once deleting go to main menu
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);

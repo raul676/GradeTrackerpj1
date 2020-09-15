@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.GradeRoom;
 
 
@@ -31,21 +32,11 @@ public class MainMenu extends AppCompatActivity {
          * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
          * the Back button needs to be changed to the log out button.
          */
-        Button edit_button = findViewById(R.id.edit_button);
         Button back_button = findViewById(R.id.back_button);
         Button assignment_button = findViewById(R.id.assignment_button);
-        Button assignmentEdit_button = findViewById(R.id.assignmentEdit_button);
         Button courseView_button = findViewById(R.id.courseView_button);
-        Button course_button = findViewById(R.id.courseView_button);
-
-        //enrollment
-        course_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
-                startActivity(intent);
-            }
-        });
+        Button gradesView_button = findViewById(R.id.gradesView_button);
+        Button enroll_button = findViewById(R.id.enrollment_button);
 
         //view courses
         courseView_button.setOnClickListener(new View.OnClickListener() {
@@ -56,39 +47,29 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        //edit courses
-       edit_button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(MainMenu.this, EditCourse.class);
-               startActivity(intent);
-           }
-       });
-
-       //views assignments
+        //view assignments
         assignment_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
-                startActivity(intent);
-            }
-        });
-
-        //edit assignments
-        assignmentEdit_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EditCourse.class);
+                Intent intent = new Intent(MainMenu.this, ViewAssignmentsActivity.class);
                 startActivity(intent);
             }
         });
 
         //view grades
-        Button gradesView_button = findViewById(R.id.gradesView_button);
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenu.this, ViewGradeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //enroll in course
+        enroll_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenu.this, EnrollCourseActivity.class);
                 startActivity(intent);
             }
         });

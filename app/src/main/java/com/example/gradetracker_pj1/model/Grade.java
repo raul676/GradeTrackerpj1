@@ -85,8 +85,18 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade Score: " +score + "\n" +
+        return "Grade Score (Letter): " +returnLetterGrade(score) + "\n" +
                 "Date Earned: " +date_earned + "\n" +
-                "Student ID: " +student_id;
+                "Student ID: " +student_id + "\n" +
+                "Grade Score: " + score;
+    }
+
+    public String returnLetterGrade(int score)
+    {
+        if(score >=9){return "A";}
+        if(score ==8){return "B";}
+        if(score ==7){return "C";}
+        if(score ==6){return "D";}
+        else return "F";
     }
 }

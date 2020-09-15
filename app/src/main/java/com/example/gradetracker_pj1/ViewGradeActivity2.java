@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
@@ -52,6 +54,21 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         rv2.setLayoutManager(new LinearLayoutManager(this));
         rv2.setAdapter(new ViewGradeActivity2.Adapter2());
 
+        String letter_grade;
+        ArrayList<Integer> listgrade = new ArrayList<>();
+        int total =0;
+        for(int i =0; i < grades.size(); i++) {
+            listgrade.add(GradeRoom.getGradeRoom(this).dao().searchGrades(ViewGradeActivity.course_id_sat, MainActivity.userid).get(i).getScore());
+        }
+        for(int i =0; i < listgrade.size(); i++)
+        {
+            total = total + listgrade.get(i);
+        }
+
+        TextView msg2 = findViewById(R.id.grade_letter);
+        total = total/ grades.size();
+       String final_letter_grade =  returnLetterGrade(total);
+        msg2.setText("Total Letter Grade: " + final_letter_grade);
 
         Button main_menu = findViewById(R.id.back_button_grade);
         main_menu.setOnClickListener(new View.OnClickListener() {
@@ -125,5 +142,14 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         }
     }
 
+    public String returnLetterGrade(int score)
+    {
+        if(score >=9){return "A";}
+        if(score ==8){return "B";}
+        if(score ==7){return "C";}
+        if(score ==6){return "D";}
+        else return "F";
+    }
 }
+
 

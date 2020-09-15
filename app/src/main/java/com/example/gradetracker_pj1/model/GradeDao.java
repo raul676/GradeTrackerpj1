@@ -31,7 +31,7 @@ public interface GradeDao {
     User loginUser(String username, String password);
 
     @Query("select * from Course where course_id=:course_id")
-    List<Course> searchCourse(int course_id);
+    Course searchCourse(int course_id);
 
     @Query("select * from Assignment where assignment_id=:assignment_id")
     Assignment searchAssignment(int assignment_id);
@@ -63,8 +63,7 @@ public interface GradeDao {
     void addUser(User user);
 
     @Delete
-    List<Course> deleteCourse(int course_id);
-
+    void deleteCourse(Course course_id);
 
     @Delete
     void deleteGrade(Grade grade);
@@ -75,5 +74,5 @@ public interface GradeDao {
     @Delete
     void deleteAssignment(Assignment assignment);
     @Delete
-    List<Grade> deleteGrades(int assignnment_id);
+    void deleteGrades(List<Grade> grades);
 }

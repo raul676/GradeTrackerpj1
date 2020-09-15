@@ -34,8 +34,6 @@ public class ViewGradeActivity extends  AppCompatActivity{
         setContentView(R.layout.activity_view_grades);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        TextView msg = findViewById(R.id.gpa_student);
-        msg.setText("Here is your ID = " + MainActivity.userid);
 
         Button view_grade_button = findViewById(R.id.course_id_button);
         view_grade_button.setOnClickListener(new View.OnClickListener() {
@@ -43,15 +41,12 @@ public class ViewGradeActivity extends  AppCompatActivity{
             public void onClick(View v) {
                 try {
                     EditText view_grade = findViewById(R.id.course_id_text);
-                    EditText id = findViewById(R.id.enter_id);
-                    String idd = id.getText().toString();
-                    int final_id = Integer.parseInt(idd);
                     String course = view_grade.getText().toString();
                     int course_id = Integer.parseInt(course);
 
-                    GradeDao daoo = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao();
-                    Grade grades = daoo.searchGrade(course_id,final_id);
-                    //List<Grade> grades = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao().searchGrades(course_id, MainActivity.userid);
+                    //GradeDao daoo = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao();
+                    //Grade grades = daoo.searchGrade(course_id,MainActivity.userid);
+                    List<Grade> grades = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao().searchGrades(course_id, MainActivity.userid);
                     if (grades != null) {
                         ViewGradeActivity.course_id_sat = course_id;
                         Intent intent = new Intent(ViewGradeActivity.this,ViewGradeActivity2.class );

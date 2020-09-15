@@ -41,7 +41,7 @@
         android:gravity = "center"
         android:textSize="30dp"
         android:id="@+id/gpa_student"
-        android:text = "Here is your ID = "/>
+        android:text = "Please Enter Course ID Here"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -51,14 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/course_id_text"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter ID Given"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/enter_id"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
