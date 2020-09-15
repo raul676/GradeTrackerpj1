@@ -62,17 +62,15 @@ public interface GradeDao {
     @Insert
     void addUser(User user);
 
-    @Delete
-    void deleteCourse(Course course_id);
-
-    @Delete
-    void deleteGrade(Grade grade);
+@Delete
+void deleteCourse(Course course);
 
     @Delete
     void deleteEnrollment(Enrollment enrollment);
 
     @Delete
     void deleteAssignment(Assignment assignment);
+
     @Delete
     void deleteGrades(List<Grade> grades);
 }
