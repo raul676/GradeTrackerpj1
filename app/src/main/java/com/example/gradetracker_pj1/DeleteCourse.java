@@ -34,7 +34,6 @@ public class DeleteCourse extends AppCompatActivity {
         GradeRoom.getGradeRoom(DeleteCourse.this).loadData(this);
 
         Button enter_button = findViewById(R.id.enter_button);
-
         enter_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +65,7 @@ public class DeleteCourse extends AppCompatActivity {
                             dao.deleteCourse(course1);
                             //dao.deleteAssignment(course1);
                             Log.d("DeleteCourse", "deletingcourse");
-                            Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
-                            startActivity(intent);
+                            finish();
                         }
 
                     });
@@ -78,7 +76,14 @@ public class DeleteCourse extends AppCompatActivity {
                 }
             }
 
+        });
 
+        Button back_button = findViewById(R.id.back_button);
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
 
 

@@ -131,7 +131,7 @@ public abstract class GradeRoom extends RoomDatabase {
         //Only for raul, he will be enrolled.
         Enrollment enrollment1 = new Enrollment(46200,462,10000, "8/20/20");
 
-        Enrollment enrollment2 = new Enrollment(43000,438,10000, "8/20/20");
+        Enrollment enrollment2 = new Enrollment(43800,438,10000, "8/20/20");
         Enrollment enrollment3 = new Enrollment(43801,438,10001, "8/20/20");
         Enrollment enrollment4 = new Enrollment(43802,438,10002, "8/20/20");
         Enrollment enrollment5 = new Enrollment(43803,438,10003, "8/20/20");

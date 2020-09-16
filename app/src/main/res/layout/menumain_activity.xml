@@ -39,17 +39,6 @@
         tools:layout_editor_absoluteY="187dp" />
 
 
-    <Button
-        android:id="@+id/enrollment_button"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:text="Enroll in Course"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="187dp" />
-
         <Button
             android:id="@+id/assignment_button"
             android:layout_width="273dp"
@@ -75,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Back"
+        android:text="Logout"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="457dp" />
 

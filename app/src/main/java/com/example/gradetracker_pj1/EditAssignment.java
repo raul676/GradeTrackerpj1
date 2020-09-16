@@ -1,54 +1,170 @@
 package com.example.gradetracker_pj1;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.gradetracker_pj1.model.Assignment;
+import com.example.gradetracker_pj1.model.GradeRoom;
+
+import java.util.List;
 
 public class EditAssignment extends AppCompatActivity {
-
-    // this is a update check
+List <Assignment> assignmentList;
+public int asign =0;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        Log.d("EditAssignment", "onCreate called");
-        super.onCreate(savedInstanceState);
-
+    protected void onCreate(Bundle saveInstanceState) {
+        Log.d("LoginActivity", "onCreate called");
+        super.onCreate(saveInstanceState);
         setContentView(R.layout.editassignment_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        Button addAssignment = findViewById(R.id.AddAssignmentBtn);
-        Button deleteAssignment = findViewById(R.id.DeleteAssignmentBtn);
-        Button backBtn = findViewById(R.id.BackBtn);
 
 
-        addAssignment.setOnClickListener(new View.OnClickListener() {
+        Button edit_assignment=  findViewById(R.id.enter_course_edit_button);
+        edit_assignment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditAssignment.this, AddAssignment.class);
-                startActivity(intent);
+                try {
+                    EditText assign_id = findViewById(R.id.edit_assignment_id);
+                     asign   = Integer.parseInt(assign_id.getText().toString());
+                    assignmentList = GradeRoom.getGradeRoom(EditAssignment.this).dao().searchAssignment(asign);
+
+                    if (assignmentList == null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
+                        builder.setTitle("No assignment found.");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }catch (Exception e){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
+                    builder.setTitle("Enter a valid Assignment ID.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            }
+        });
+        assignmentList = GradeRoom.getGradeRoom(EditAssignment.this).dao().searchAssignment(asign);
+        Log.d("ViewCourseActivity", "EditAssignments" + assignmentList.size());
+        RecyclerView rv = findViewById(R.id.recycler_view_edit_assignment);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(new Adapter());
+
+
+        Button edit_assingment2 = findViewById(R.id.edit_assignment_button2);
+        edit_assingment2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    EditText detail = findViewById(R.id.edit_details);
+                    EditText date = findViewById(R.id.edit_due_date);
+                    String details = detail.getText().toString();
+                    String due_date = date.getText().toString();
+
+                    if (assignmentList == null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
+                        builder.setTitle("Confirm Assignment ID first.");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    } else {
+                        assignmentList.get(0).setDetails(details);
+                        assignmentList.get(0).setDue_date(due_date);
+                        GradeRoom.getGradeRoom(EditAssignment.this).dao().updateAssignment(assignmentList);
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
+                        builder.setTitle("Assignment has been edited!");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }catch (Exception e){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
+                    builder.setTitle("Must search for valid hw assignment first!");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+
             }
         });
 
-        deleteAssignment.setOnClickListener(new View.OnClickListener() {
+
+        Button back_button = findViewById(R.id.BackBtn_2);
+        back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditAssignment.this, DeleteAssignment.class);
-                startActivity(intent);
+                finish();
             }
         });
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //not sure about main act lead back just yet need to update this code
-                Intent intent = new Intent(EditAssignment.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+    }
+
+
+    private class Adapter extends RecyclerView.Adapter<ItemHolder> {
+
+        @Override
+        public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(EditAssignment.this);
+            return new ItemHolder(layoutInflater, parent);
+        }
+
+        @Override
+        public void onBindViewHolder(ItemHolder holder, int position) {
+            holder.bind(assignmentList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return assignmentList.size();
+        }
+
+    }
+    private class ItemHolder extends RecyclerView.ViewHolder {
+
+        public ItemHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.item, parent, false));
+        }
+
+        public void bind(Assignment f) {
+            TextView item = itemView.findViewById(R.id.item_id);
+            item.setText(f.toString());
+        }
     }
 }

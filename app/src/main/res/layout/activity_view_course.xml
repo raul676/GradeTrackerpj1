@@ -54,11 +54,7 @@
         android:layout_height="wrap_content"
         android:text="Select course"
         android:id="@+id/select_course"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Confirm course"
-        android:id="@+id/confirm_course"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

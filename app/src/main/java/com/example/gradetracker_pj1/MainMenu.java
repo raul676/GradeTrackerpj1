@@ -36,7 +36,6 @@ public class MainMenu extends AppCompatActivity {
         Button assignment_button = findViewById(R.id.assignment_button);
         Button courseView_button = findViewById(R.id.courseView_button);
         Button gradesView_button = findViewById(R.id.gradesView_button);
-        Button enroll_button = findViewById(R.id.enrollment_button);
 
         //view courses
         courseView_button.setOnClickListener(new View.OnClickListener() {
@@ -61,15 +60,6 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenu.this, ViewGradeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        //enroll in course
-        enroll_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, EnrollCourseActivity.class);
                 startActivity(intent);
             }
         });
