@@ -80,6 +80,8 @@ public interface GradeDao {
 
     @Delete
     void deleteGrades(List<Grade> grades);
+    @Delete
+    void deleteGradeCategory(Course course);
     @Update
     void updateAssignment(List<Assignment> assignments);
     @Update
