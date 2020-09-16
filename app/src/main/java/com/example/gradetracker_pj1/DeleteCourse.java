@@ -43,16 +43,19 @@ public class DeleteCourse extends AppCompatActivity {
                 String course = id.getText().toString();
                 int course_id =Integer.parseInt(course);
 
+                /** A simple try catch used to catch if the course id is invaild and unable to parse into an integer */
                 try {
                     Integer.parseInt(course);
                 } catch (NumberFormatException e ){
                     id.setError("wrong Input");
                 }
 
+                /** Implementing the retrieval of information from the dao / room  */
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
 
+                /**if the course is not null it will be deleted, the assignments with the corresponding course id will be deleted as well */
                 if (course != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
@@ -78,6 +81,7 @@ public class DeleteCourse extends AppCompatActivity {
 
         });
 
+        /**If the user chooses to leave the page they will be lead back to the main page */
         Button back_button = findViewById(R.id.back_button);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override

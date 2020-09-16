@@ -37,11 +37,13 @@ public class EditCourse extends AppCompatActivity {
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /** A try to get the course Id and parse the course Id into an integer */
                 try {
                     EditText course = findViewById(R.id.enter_course_id_edit);
                     course_id = Integer.parseInt(course.getText().toString());
 
                     courseList = GradeRoom.getGradeRoom(EditCourse.this).dao().searchCourse2(course_id);
+                  /** If the course list is null the user is told the course can not be found */
                     if (courseList == null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(EditCourse.this);
                         builder.setTitle("No course found.");
@@ -54,6 +56,7 @@ public class EditCourse extends AppCompatActivity {
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    /** A catch to throw an expection if the user enters an invalid course id */
                 }catch (Exception e){
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditCourse.this);
                     builder.setTitle("Enter Valid course ID.");
@@ -69,6 +72,7 @@ public class EditCourse extends AppCompatActivity {
             }
         });
 
+        /** A  Recycler view is implemented to show courses that are retrieved from the Room*/
         courseList = GradeRoom.getGradeRoom(EditCourse.this).dao().searchCourse2(course_id);
         Log.d("ViewCourseActivity", "EditAssignments" + courseList.size());
         RecyclerView rv = findViewById(R.id.recycler_view_course_edit);
@@ -79,6 +83,9 @@ public class EditCourse extends AppCompatActivity {
         edit_course_final.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**A try to allow users to edit course information, if the course list is null the user has to enter the course id, else
+                 * the course will update with edited information
+                 */
                 try {
                     EditText instruc = findViewById(R.id.edit_instructor);
                     EditText enddate = findViewById(R.id.edit_end_date);
@@ -111,6 +118,7 @@ public class EditCourse extends AppCompatActivity {
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    /** A catch used to throw an exception if the user has an invaild course */
                 }catch (Exception e){
                     GradeRoom.getGradeRoom(EditCourse.this).dao().updateCourse(courseList);
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditCourse.this);
@@ -128,6 +136,7 @@ public class EditCourse extends AppCompatActivity {
             }
         });
 
+        /** If the user clicks the back button they will be lead back to main menu */
         Button back_button = findViewById(R.id.edit_course_back);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +146,10 @@ public class EditCourse extends AppCompatActivity {
         });
     }
 
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
+     */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override

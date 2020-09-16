@@ -29,6 +29,7 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /** If the user clicks the return button they are lead back to the main menu */
         Button return_main_button = findViewById(R.id.main_menu_course);
         return_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,35 +39,30 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
             }
         });
 
-        // Get all the assignments
+        /** A list to get all assignments, then if the assignment is not null a Recycler view is implemented to show assignments */
         List<Assignment> assignments = GradeRoom.getGradeRoom(this).dao().getAllAssignments();
-        // get their end dates
+
         if(assignments != null)
             Log.d("ViewAssignmentsActivity", "Assignments's" + assignments.size());
-        //show it on screen
+
         RecyclerView rv = findViewById(R.id.recycler_view_2);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new ViewAssignmentsActivity.Adapter());
 
     }
 
-    /*
-     * Adapter is a RecyclerView for ItemHolders
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
      */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
-        /*
-         * Constructor
-         */
         @Override
         public ViewAssignmentsActivity.ItemHolder onCreateViewHolder(ViewGroup parent, int viewType){
             LayoutInflater layoutInflater = LayoutInflater.from(ViewAssignmentsActivity.this);
             return new ViewAssignmentsActivity.ItemHolder(layoutInflater, parent);
         }
 
-        /*
-         * bind the items to the holder
-         */
         @Override
         public void onBindViewHolder(ViewAssignmentsActivity.ItemHolder holder, int position){
             holder.bind(assignments.get(position));

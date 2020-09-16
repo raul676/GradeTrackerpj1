@@ -41,6 +41,8 @@ public class ViewCourseActivity extends AppCompatActivity {
         select_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /**The try gets the course id that is input as a string and parses the course id to a integer so that the course id can be retrieved */
                 try {
                     EditText course = findViewById(R.id.course_id);
                     int course_id = Integer.parseInt(course.getText().toString());
@@ -52,6 +54,8 @@ public class ViewCourseActivity extends AppCompatActivity {
                         Random random = new Random();
                         int random_var = random.nextInt(99999 - 1);
                         Enrollment enr = GradeRoom.getGradeRoom(ViewCourseActivity.this).dao().searchEnrollment(course_id, MainActivity.userid);
+
+                        /** If the users course id is null the user will allowed to enroll in the course, else the user is told they are already enrolled */
                         if (enr == null) {
                             Enrollment enrollment = new Enrollment(random_var, course_id, MainActivity.userid, "9/01/20");
                             GradeDao dao = GradeRoom.getGradeRoom(ViewCourseActivity.this).dao();
@@ -79,6 +83,8 @@ public class ViewCourseActivity extends AppCompatActivity {
                             dialog.show();
                         }
                     }
+
+                    /** A catch that throws an exception if a nonvaild course id is entered, a alert message will show to tell the user */
                 }catch (Exception e){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ViewCourseActivity.this);
                     builder.setTitle("Enter valid course ID.");
@@ -95,7 +101,7 @@ public class ViewCourseActivity extends AppCompatActivity {
         });
 
 
-
+/** If the use chooses to return to the back the user will be lead back to the main course*/
         Button return_main_button = findViewById(R.id.main_menu_course);
         return_main_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +111,7 @@ public class ViewCourseActivity extends AppCompatActivity {
             }
         });
 
+        /**The Recycler view to see the user's current courses */
         courses = GradeRoom.getGradeRoom(this).dao().getAllCourses();
         Log.d("ViewCourseActivity", "Courses's" + courses.size());
         RecyclerView rv = findViewById(R.id.recycler_view_2);
@@ -112,6 +119,10 @@ public class ViewCourseActivity extends AppCompatActivity {
         rv.setAdapter(new Adapter());
 
     }
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
+     */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override

@@ -47,34 +47,17 @@ public class AddAssignment extends AppCompatActivity {
             public void onClick(View v) {
                 Assignment assignment;
                 try {
-
-
                     assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString()), Integer.parseInt(courseId.getText().toString()), Integer.parseInt(categoryId.getText().toString()),Integer.parseInt(maxScore.getText().toString()), details.getText().toString(), assignedDate.getText().toString(), dueDate.getText().toString());
-
-
-
                     Toast.makeText(AddAssignment.this, assignment.toString(), Toast.LENGTH_SHORT).show();
                     // Toast.makeText(AddAssignment.this, "submit button works", Toast.LENGTH_SHORT).show();
 
-
-
-
                 } catch (Exception e) {
                     Toast.makeText(AddAssignment.this,"Error ", Toast.LENGTH_SHORT).show(); // non integer input
-
                     assignment = new Assignment(-1,-1,-1,-1,"error",null,null); // default values
-
-                 
 
                 }
 
-
-
                gradeDao.addAssignment(assignment);
-
-
-
-
             }
         });
 

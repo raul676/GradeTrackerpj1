@@ -34,11 +34,13 @@ public int asign =0;
         edit_assignment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /** A try to get the assignment Id and parse the assignment Id into an integer */
                 try {
                     EditText assign_id = findViewById(R.id.edit_assignment_id);
                      asign   = Integer.parseInt(assign_id.getText().toString());
                     assignmentList = GradeRoom.getGradeRoom(EditAssignment.this).dao().searchAssignment(asign);
 
+                    /** If the assignment list is null the user is told the course can not be found */
                     if (assignmentList == null) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
                         builder.setTitle("No assignment found.");
@@ -51,6 +53,7 @@ public int asign =0;
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    /** A catch to throw an expection if the user enters an invalid assignment id */
                 }catch (Exception e){
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
                     builder.setTitle("Enter a valid Assignment ID.");
@@ -65,17 +68,21 @@ public int asign =0;
                 }
             }
         });
+
+        /**The Recycler view to see the user's current Assignments */
         assignmentList = GradeRoom.getGradeRoom(EditAssignment.this).dao().searchAssignment(asign);
         Log.d("ViewCourseActivity", "EditAssignments" + assignmentList.size());
         RecyclerView rv = findViewById(R.id.recycler_view_edit_assignment);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new Adapter());
 
-
         Button edit_assingment2 = findViewById(R.id.edit_assignment_button2);
         edit_assingment2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**A try to allow users to edit assignment information, if the assignment list is null the user has to enter the assignment id, else
+                 * the assignment will update with edited information
+                 */
                 try {
                     EditText detail = findViewById(R.id.edit_details);
                     EditText date = findViewById(R.id.edit_due_date);
@@ -109,6 +116,7 @@ public int asign =0;
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    /** A catch used to throw an exception if the user has an invaild Assignment */
                 }catch (Exception e){
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditAssignment.this);
                     builder.setTitle("Must search for valid hw assignment first!");
@@ -125,7 +133,7 @@ public int asign =0;
             }
         });
 
-
+/** If the user clicks the back button they will be lead back to main menu */
         Button back_button = findViewById(R.id.BackBtn_2);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +144,9 @@ public int asign =0;
 
     }
 
-
+/**The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+ * and the bind view binds the items to the holder
+ */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override

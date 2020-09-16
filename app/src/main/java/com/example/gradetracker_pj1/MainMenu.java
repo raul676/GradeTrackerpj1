@@ -25,19 +25,16 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menumain_activity);
 
+        /** After succesfull log in users are sent to the main menu with their name at the top of the app*/
         TextView msg = findViewById(R.id.welcome_user_msg);
         msg.setText("Welcome " + MainActivity.username);
-        /**
-         * There is a lot of buttons here: please use them to check if your class loads up (all
-         * buttons are set to editcourse) we can always get rid of a lot of these buttons. Also
-         * the Back button needs to be changed to the log out button.
-         */
+      
         Button back_button = findViewById(R.id.back_button);
         Button assignment_button = findViewById(R.id.assignment_button);
         Button courseView_button = findViewById(R.id.courseView_button);
         Button gradesView_button = findViewById(R.id.gradesView_button);
 
-        //view courses
+        /** Each button is given an intent to lead to the pages the user desires */
         courseView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
