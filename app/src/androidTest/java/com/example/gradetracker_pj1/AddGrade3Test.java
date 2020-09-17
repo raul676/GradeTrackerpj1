@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+/** A test to run if adding a grade to dao is implemented, AddGrade3 refers to the menu in which admin can add the grade for the student*/
     @RunWith(AndroidJUnit4.class)
     public class AddGrade3Test {
 

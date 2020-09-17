@@ -2,7 +2,6 @@ package com.example.gradetracker_pj1;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,10 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
-import java.util.Random;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,15 +19,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gradetracker_pj1.model.Course;
-import com.example.gradetracker_pj1.model.Enrollment;
-import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 import com.example.gradetracker_pj1.model.User;
 
+/** This add grade allows admin to view students who are enrolled within the 'school'*/
 public class AddGrade1 extends  AppCompatActivity {
+
     List<User> users;
     public static int student_id_add;
+
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         Log.d("LoginActivity", "onCreate called");
@@ -44,6 +41,9 @@ public class AddGrade1 extends  AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                /** A try to get the student ID and parse from a string to an int if the student id is null student can not be found
+                 * else the next activity (add grade 2) starts
+                 */
                 try {
                     EditText user = findViewById(R.id.student_id);
                     int student_id = Integer.parseInt(user.getText().toString());
@@ -54,7 +54,7 @@ public class AddGrade1 extends  AppCompatActivity {
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -70,7 +70,7 @@ public class AddGrade1 extends  AppCompatActivity {
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -79,23 +79,26 @@ public class AddGrade1 extends  AppCompatActivity {
             }
         });
 
+        /**A recyler view to view students  */
         users = GradeRoom.getGradeRoom(this).dao().getAllUser();
         Log.d("ViewCourseActivity", "Courses's" + users.size());
         RecyclerView rv = findViewById(R.id.recycler_view_users);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new Adapter());
-
-
         Button back = findViewById(R.id.main_menu_add_grade);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
 
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
+     */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override

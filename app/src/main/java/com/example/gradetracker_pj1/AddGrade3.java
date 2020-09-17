@@ -18,6 +18,7 @@ import com.example.gradetracker_pj1.model.GradeRoom;
 
 import java.util.Random;
 
+/** Add grade 3 allows admin to give grade for that specific course */
 public class AddGrade3 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -28,9 +29,11 @@ public class AddGrade3 extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         Button add_grade = findViewById(R.id.add_new_grade);
+
         add_grade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**A try to get the values for edit score,date and category which are put in as a string and parsed as an integer  */
                 try {
                     EditText score = findViewById(R.id.new_score);
                     EditText date = findViewById(R.id.date_earned);
@@ -43,6 +46,7 @@ public class AddGrade3 extends AppCompatActivity{
                     int score_int = Integer.parseInt(score_str);
                     int category_int = Integer.parseInt(category_str);
 
+                    /** Variables needed to add in score, assignment id, grade id**/
                     Random random = new Random();
                     int random_num = random.nextInt(10000);
                     int gradetracker = random_num;
@@ -52,6 +56,8 @@ public class AddGrade3 extends AppCompatActivity{
                     int assignment_id = Integer.parseInt(p3);
                     boolean is_true1 = true;
                     boolean is_true2 = false;
+
+                    /** if loops to get the score and integer values needed that construct the grade category**/
                     if (score_int > 10) {
                         is_true1 = false;
                     }
@@ -65,18 +71,19 @@ public class AddGrade3 extends AppCompatActivity{
                         Toast.makeText(AddGrade3.this, "Correct values are needed!", Toast.LENGTH_SHORT).show(); // non integer input
 
                     }
+
+                    /**If all input correct the grade will be added for the user */
                     if (is_true1 && is_true2) {
                         GradeDao dao = GradeRoom.getGradeRoom(AddGrade3.this).dao();
                         Grade grade = new Grade(gradetracker, category_int, score_int, assignment_id, AddGrade2.course_id_add, AddGrade1.student_id_add, date_str);
                         dao.addGrade(grade);
-                        Toast.makeText(AddGrade3.this, "Grade has been added!", Toast.LENGTH_SHORT).show(); // non integer input
+                        Toast.makeText(AddGrade3.this, "Grade has been added!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddGrade3.this, AdminMenu.class);
                         startActivity(intent);
 
                     }
                 }catch (Exception e){
-                    Toast.makeText(AddGrade3.this, "Input valid information!", Toast.LENGTH_SHORT).show(); // non integer input
-
+                    Toast.makeText(AddGrade3.this, "Input valid information!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -89,6 +96,5 @@ public class AddGrade3 extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
     }
 }

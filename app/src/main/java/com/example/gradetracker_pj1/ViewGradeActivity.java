@@ -41,7 +41,9 @@ public class ViewGradeActivity extends  AppCompatActivity{
         view_grade_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /**A try to get the course id and list of grades if the grades are not null the user will be directed to another view grade activity*/
+                /**A try to get the course id and list of grades if the grades are not null the user will be directed to another
+                 *  view grade activity
+                 */
                 try {
                     EditText view_grade = findViewById(R.id.course_id_text);
                     String course = view_grade.getText().toString();
@@ -57,10 +59,9 @@ public class ViewGradeActivity extends  AppCompatActivity{
                         AlertDialog.Builder builder = new AlertDialog.Builder(ViewGradeActivity.this);
                         builder.setTitle("No course found.");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                            /**Finishes alert dialog after user clicks okay */
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                /**Finishes alert dialog after user clicks okay */
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -72,10 +73,9 @@ public class ViewGradeActivity extends  AppCompatActivity{
                     AlertDialog.Builder builder = new AlertDialog.Builder(ViewGradeActivity.this);
                     builder.setTitle("Please enter a valid course ID.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                        /**Finishes alert dialog after user clicks okay */
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            /**Finishes alert dialog after user clicks okay */
                         }
                     });
                     AlertDialog dialog = builder.create();

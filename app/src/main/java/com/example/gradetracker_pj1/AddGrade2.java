@@ -27,8 +27,12 @@ import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 import com.example.gradetracker_pj1.model.User;
+
+/**AddGrade2 allows admin to view the courses a specific student is enrolled in, admin can then select the course to enter grade */
 public class AddGrade2 extends  AppCompatActivity{
+
     List<Enrollment> enrollments;
+
     public static int course_id_add;
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -58,7 +62,7 @@ public class AddGrade2 extends  AppCompatActivity{
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -70,7 +74,7 @@ public class AddGrade2 extends  AppCompatActivity{
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -79,6 +83,7 @@ public class AddGrade2 extends  AppCompatActivity{
             }
         });
 
+        /**A recyler view to view students enrolled in course */
         enrollments = GradeRoom.getGradeRoom(this).dao().searchEnrolledCourse(AddGrade1.student_id_add);
         Log.d("ViewCourseActivity", "Courses's" + enrollments.size());
         RecyclerView rv = findViewById(R.id.recycler_view_enrolled_courses_student);
@@ -96,6 +101,10 @@ public class AddGrade2 extends  AppCompatActivity{
 
     }
 
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
+     */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override
