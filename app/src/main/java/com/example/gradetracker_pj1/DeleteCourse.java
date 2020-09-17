@@ -59,7 +59,7 @@ public class DeleteCourse extends AppCompatActivity {
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
-/** if the course is not not the course will be deleted along with the grades */
+/** if the course is not not the course will be deleted along with the grades, enrollment and assignments */
                 if (course1 != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
@@ -88,6 +88,7 @@ public class DeleteCourse extends AppCompatActivity {
                     dialog.show();
 
                 }
+                /**If the assignment does not exist let user know */
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("Course does not exist.");

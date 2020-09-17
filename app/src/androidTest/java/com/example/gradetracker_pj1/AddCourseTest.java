@@ -46,8 +46,8 @@ public class AddCourseTest {
         assertEquals("com.example.gradetracker_pj1", appContext.getPackageName());
     }
 
-    /** testing on click when deletion occurs by adding an course to a list then deleting course and checking if the
-     * list is empty
+    /** testing on click when addition occurs by adding an course to a list then adding course and checking if the
+     * list is populated
      */
     @Test
     public void onClick() {

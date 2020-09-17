@@ -17,7 +17,7 @@ import com.example.gradetracker_pj1.model.User;
 
 public class CreateLoginActivity extends AppCompatActivity {
 
-    @Override
+   @Override
     protected void onCreate(Bundle saveInstanceState) {
         Log.d("CreateLoginActivity", "onCreate called");
         super.onCreate(saveInstanceState);
@@ -25,26 +25,27 @@ public class CreateLoginActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         Button new_user = findViewById(R.id.confirm_new_user);
         new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+/**A try to get the edit fields input by the user to create a new account  */
                 try {
                     EditText fname = findViewById(R.id.first_name_user);
                     EditText lname = findViewById(R.id.last_name_user);
                     EditText user = findViewById(R.id.username_edit);
-                    EditText pass = findViewById(R.id.password_edit);
+                   EditText pass = findViewById(R.id.password_edit);
 
                     String first_name = fname.getText().toString();
                     String last_name = lname.getText().toString();
                     String username = user.getText().toString();
-                    String password = pass.getText().toString();
+                   String password = pass.getText().toString();
                     String numbers = "1234567890";
                     String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     boolean is_true_char = false;
                     boolean is_true_num = false;
-
+/** For Loops that check for length for characters and numbers in username  */
                     for (int i = 0; i < username.length(); i++) {
                         for (int j = 0; j < numbers.length(); j++) {
                             if (username.charAt(i) == numbers.charAt(j)) {
@@ -65,12 +66,13 @@ public class CreateLoginActivity extends AppCompatActivity {
                             }
                         }
                     }
+                    /**If the length and username requirements are meant then the user is added to the DAO */
                     if (is_true_char && is_true_num) {
                         Random random = new Random();
                         int random_var = random.nextInt(99999);
-                        User user1 = new User(random_var, username, password, first_name, last_name);
+                      User user1 = new User(random_var, username, password, first_name, last_name);
                         GradeDao dao = GradeRoom.getGradeRoom(CreateLoginActivity.this).dao();
-                        dao.addUser(user1);
+                       dao.addUser(user1);
                         Toast.makeText(CreateLoginActivity.this, "User added, Welcome " + first_name, Toast.LENGTH_SHORT).show(); // non integer input
 
                     } else {
@@ -78,7 +80,8 @@ public class CreateLoginActivity extends AppCompatActivity {
 
                     }
 
-                }catch (Exception e){
+                }/**A catch to check if user input invaild input  */
+                catch (Exception e){
                     Toast.makeText(CreateLoginActivity.this, "Enter valid input", Toast.LENGTH_SHORT).show(); // non integer input
 
                 }

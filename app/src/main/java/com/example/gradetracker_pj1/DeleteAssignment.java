@@ -31,18 +31,12 @@ public class DeleteAssignment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Log.d("DeleteAssignments", "onCreate called");
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.delete_assignments);
-
-        // deleteAssignmentId = findViewById(R.id.deleteAssignmentId);
+        /**Finding the assignment Id by parsing the string to an int */
         deleteAssignmentBtn = findViewById(R.id.submitBtn);
         backBtn = findViewById((R.id.backBtn));
-
-
         GradeRoom.getGradeRoom(DeleteAssignment.this).loadData(this);
 
 
@@ -55,6 +49,7 @@ public class DeleteAssignment extends AppCompatActivity {
                 String assignment = deleteAssignmentId.getText().toString();
                 int assignment_id = Integer.parseInt(assignment);
 
+                /**A simple try catch for parsing the string into an int */
                 try {
                     Integer.parseInt(assignment);
                 } catch (NumberFormatException e) {
@@ -66,7 +61,7 @@ public class DeleteAssignment extends AppCompatActivity {
 
 
                 Assignment assignment1 = dao.searchAssignment2(assignment_id);
-
+/**If the assignment is not null the assignment will be deleted  */
                 if (assignment1 != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteAssignment.this);
@@ -74,10 +69,9 @@ public class DeleteAssignment extends AppCompatActivity {
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //deleting
+
                             GradeDao daoo = GradeRoom.getGradeRoom(DeleteAssignment.this).dao();
                             daoo.deleteAssignment(assignment1);
-                            //dao.deleteAssignment(course1);
                             Log.d("DeleteAssignment", "deletingAssignment");
                             Intent intent = new Intent(DeleteAssignment.this, AdminMenu.class);
                             startActivity(intent);
@@ -89,6 +83,7 @@ public class DeleteAssignment extends AppCompatActivity {
 
 
                 }
+                /**If the assignment does not exist let user know */
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteAssignment.this);
                     builder.setTitle("This Assignment doesn't exist.");

@@ -14,7 +14,7 @@ import com.example.gradetracker_pj1.model.GradeRoom;
 
 public class AddCourse extends AppCompatActivity{
 
-    // references
+    /**References */
     EditText courseId, instructor, course_title, startDate, description, endDate;
     Button submit;
 
@@ -24,8 +24,6 @@ public class AddCourse extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){ // starts application
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcourse);
-
-        //variables
 
         courseId = findViewById(R.id.course_id);
         instructor = findViewById(R.id.instructor_name);
@@ -37,11 +35,11 @@ public class AddCourse extends AppCompatActivity{
 
         submit = findViewById(R.id.btnAddCourse);
 
-        // button listener
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**A try to see if the course ID exists or can be added */
                 try {
                     if(gradeDao.searchCourse(Integer.parseInt(courseId.getText().toString())) != null)
                     {
@@ -55,7 +53,8 @@ public class AddCourse extends AppCompatActivity{
                         // Toast.makeText(AddCourse.this, "submit button works", Toast.LENGTH_SHORT).show();
                     }
 
-                } catch (Exception e) {
+                } /**A catch if there is invaild input */
+                catch (Exception e) {
                     Toast.makeText(AddCourse.this,"Error ", Toast.LENGTH_SHORT).show(); // non integer input
                    // course = new Course(-1,"error","error","error","error","error"); // default values
                 }
