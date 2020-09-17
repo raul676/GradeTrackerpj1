@@ -95,6 +95,14 @@ public class DeleteAssignment extends AppCompatActivity {
 
 
         });
+        /** Returns the user back to the main page */
+        Button backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
     }

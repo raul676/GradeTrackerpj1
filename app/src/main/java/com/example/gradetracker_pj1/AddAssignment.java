@@ -36,7 +36,7 @@ public class AddAssignment extends AppCompatActivity {
         details = findViewById(R.id.details);
         assignedDate = findViewById(R.id.assignmentDate);
         dueDate = findViewById(R.id.dueDate);
-        submit = findViewById(R.id.btnAddCourse);
+        submit = findViewById(R.id.btnAddAssignments);
         backBtn = findViewById(R.id.backBtn);
 
 
@@ -46,7 +46,7 @@ public class AddAssignment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if(gradeDao.searchCourse(Integer.parseInt(assignmentId.getText().toString())) != null)
+                    if(gradeDao.searchAssignment(Integer.parseInt(assignmentId.getText().toString())) != null)
                     {
                         Toast.makeText(AddAssignment.this,"Assignment ID already exists ", Toast.LENGTH_SHORT).show(); // non integer input
                     }
