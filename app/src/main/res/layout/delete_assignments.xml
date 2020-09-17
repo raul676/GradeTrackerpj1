@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5">
 
     <TextView
         android:id="@+id/textViewDeleteAssignment"
@@ -42,13 +43,15 @@
 
     <Button
         android:id="@+id/submitBtn"
-        android:layout_width="228dp"
-        android:layout_height="47dp"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
         android:layout_marginStart="103dp"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="426dp"
+        android:background="@drawable/rounded_corners"
         android:text="SUBMIT"
+        android:textColor="#DBFCFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.27"
@@ -64,7 +67,9 @@
         android:layout_marginTop="569dp"
         android:layout_marginEnd="274dp"
         android:layout_marginBottom="116dp"
+        android:background="@drawable/rounded_corners"
         android:text="Back"
+        android:textColor="#DBFCFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
