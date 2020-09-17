@@ -33,6 +33,7 @@ public class EditAssignment extends AppCompatActivity {
 
 
         Button edit_assignment=  findViewById(R.id.enter_course_edit_button);
+
         edit_assignment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

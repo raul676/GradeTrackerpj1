@@ -24,7 +24,7 @@ import java.util.List;
 
 public class EditCourse extends AppCompatActivity {
     List<Course> courseList;
-    public int course_id =0;
+    public int course_id = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("EditCourse", "onCreate called");
