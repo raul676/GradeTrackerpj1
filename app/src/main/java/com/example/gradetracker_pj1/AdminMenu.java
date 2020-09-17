@@ -33,7 +33,8 @@ public class AdminMenu extends AppCompatActivity {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent  = new Intent(AdminMenu.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -88,6 +89,15 @@ public class AdminMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminMenu.this, EditCourse.class);
+                startActivity(intent);
+            }
+        });
+
+        Button add_grade = findViewById(R.id.add_grade_admin);
+        add_grade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMenu.this, AddGrade1.class);
                 startActivity(intent);
             }
         });

@@ -55,4 +55,10 @@ public class User {
         return password;
     }
 
+    @Override
+    public String toString(){
+
+        return "User name: " + first_name + " " + last_name + "\n"
+                +"User ID: "+ userid;
+    }
 }

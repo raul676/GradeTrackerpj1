@@ -71,6 +71,9 @@ public interface GradeDao {
     @Query("select * from Assignment where course_id=:course_id")
     List<Assignment> searchAssignment_to_delete(int course_id);
 
+    @Query("select * from User where userid=:user_id")
+    User searchUser(int user_id);
+
 
     @Insert
     void addAssignment(Assignment assignment);

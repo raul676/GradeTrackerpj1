@@ -103,6 +103,17 @@
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
 
+    <Button
+        android:id="@+id/add_grade_admin"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Add Grade"
+        android:textColor="#DBFCFF"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="318dp" />
 
     <Button
         android:id="@+id/back_button_admin"
