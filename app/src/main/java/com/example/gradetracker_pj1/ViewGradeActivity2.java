@@ -81,8 +81,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         main_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewGradeActivity2.this, ViewGradeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
