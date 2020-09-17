@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Delete;
 
 import com.example.gradetracker_pj1.model.Course;
+import com.example.gradetracker_pj1.model.GradeCategory;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 import com.example.gradetracker_pj1.model.User;
@@ -24,6 +25,7 @@ import java.util.List;
 public class DeleteCourse extends AppCompatActivity {
 
     List<Course> courses;
+    List<GradeCategory> gradeCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class DeleteCourse extends AppCompatActivity {
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
+                gradeCategories = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllGradeCategorys();
+              //causes error   GradeCategory grade = dao.searchGradeCategory(course_id);
 /** if the course is not not the course will be deleted along with the grades */
                 if (course != null) {
 
