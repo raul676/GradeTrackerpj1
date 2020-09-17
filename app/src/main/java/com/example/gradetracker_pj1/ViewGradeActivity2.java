@@ -71,7 +71,9 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
 
         /**A message to show the user their final grade for a course */
         TextView msg2 = findViewById(R.id.grade_letter);
-        total = total/ grades.size();
+        if(grades.size() != 0) {
+            total = total / grades.size();
+        }
        String final_letter_grade =  returnLetterGrade(total);
         msg2.setText("Total Letter Grade: " + final_letter_grade);
 
@@ -79,7 +81,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         main_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewGradeActivity2.this, MainMenu.class);
+                Intent intent = new Intent(ViewGradeActivity2.this, ViewGradeActivity.class);
                 startActivity(intent);
             }
         });
