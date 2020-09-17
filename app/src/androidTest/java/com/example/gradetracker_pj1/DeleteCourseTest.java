@@ -2,7 +2,6 @@ package com.example.gradetracker_pj1;
 
 import android.content.Context;
 
-import androidx.room.Delete;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
@@ -18,16 +17,14 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
 
 @RunWith(AndroidJUnit4.class)
     public class DeleteCourseTest {
 
         private GradeDao dao;
 
-    /** on create test, gets the context (database) required to do test  */
+        /** on create test, gets the context (database) required to do test  */
         @Before
         public void createDB(){
             Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
@@ -52,6 +49,5 @@ import static org.junit.Assert.assertTrue;
             dao.deleteCourse(course1);
 
             assertTrue(!courseList.isEmpty());
-
         }
 }

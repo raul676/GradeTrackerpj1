@@ -50,7 +50,7 @@ public class EditCourse extends AppCompatActivity {
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();
