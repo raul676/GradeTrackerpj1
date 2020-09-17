@@ -21,7 +21,7 @@ public class AddAssignment extends AppCompatActivity {
     Button submit, backBtn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){ // starts application
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
 
