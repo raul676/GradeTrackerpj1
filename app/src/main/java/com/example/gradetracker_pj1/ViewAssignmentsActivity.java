@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,14 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Enrollment;
-import com.example.gradetracker_pj1.model.Grade;
 import com.example.gradetracker_pj1.model.GradeRoom;
-import com.example.gradetracker_pj1.ViewAssignmentsInOneCourseActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ViewAssignmentsActivity extends AppCompatActivity {
+
     static List<Assignment> assignments;
     List<Enrollment> enrollments;
 
@@ -73,7 +72,6 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
                     assignments2.add(i);
                 }
             }
-
             assignments = assignments2;
         }
 
@@ -100,8 +98,6 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewAssignmentsActivity.ItemHolder holder, int position){
             holder.bind(assignments.get(position));
-
-
         }
 
         @Override
@@ -124,7 +120,6 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
             item.setText(f.toString());
         }
     }
-
 
     private class Adapter2 extends RecyclerView.Adapter<ItemHolder2> {
 
@@ -161,13 +156,11 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //use position value  to get clicked data from list
+
                     try {
                         int course_id = f.getCourse_id();
-
-                        //GradeDao daoo = GradeRoom.getGradeRoom(ViewAssignmentsActivity.this).dao();
-                        //Grade grades = daoo.searchGrade(course_id,MainActivity.userid);
                         ArrayList<Assignment> assignmentsFilter = new ArrayList<Assignment>();
+
                         for(Assignment i : assignments) {
                             if(i.getCourse_id() == course_id){
                                 assignmentsFilter.add(i);
@@ -177,14 +170,14 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
                         ViewAssignmentsInOneCourseActivity.assignments = assignmentsFilter;
                         Intent intent = new Intent(ViewAssignmentsActivity.this, ViewAssignmentsInOneCourseActivity.class);
                         startActivity(intent);
-                    }catch (Exception e)
+                    } catch (Exception e)
                     {
                         AlertDialog.Builder builder = new AlertDialog.Builder(ViewAssignmentsActivity.this);
                         builder.setTitle("Please enter a valid course ID.");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();

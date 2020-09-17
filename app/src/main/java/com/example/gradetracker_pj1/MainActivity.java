@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
 
     /**Variables needed for usernames and passwords */
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public static int userid=0;
     public static final String admin_user = "dr.sithlord";
     public static final String admin_password = "dr.sithlord";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,16 +71,13 @@ public class MainActivity extends AppCompatActivity {
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
                }
-
             }
-          
         });
 
         Button create_login = findViewById(R.id.create_login_button);
@@ -95,23 +92,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

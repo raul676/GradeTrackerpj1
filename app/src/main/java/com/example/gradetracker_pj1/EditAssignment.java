@@ -21,9 +21,11 @@ import com.example.gradetracker_pj1.model.GradeRoom;
 import java.util.List;
 
 public class EditAssignment extends AppCompatActivity {
-List <Assignment> assignmentList;
-public int asign =0;
-    @Override
+
+    List <Assignment> assignmentList;
+    public int asign =0;
+
+@Override
     protected void onCreate(Bundle saveInstanceState) {
         Log.d("LoginActivity", "onCreate called");
         super.onCreate(saveInstanceState);
@@ -47,7 +49,7 @@ public int asign =0;
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -60,7 +62,7 @@ public int asign =0;
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -95,7 +97,7 @@ public int asign =0;
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
+                                /**Closes alert Dialog after okay clicked*/
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -123,7 +125,7 @@ public int asign =0;
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();

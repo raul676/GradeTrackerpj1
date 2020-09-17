@@ -15,6 +15,7 @@ import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 
 public class AddAssignment extends AppCompatActivity {
+
     /** References */
     EditText assignmentId, courseId, categoryId, maxScore, earnedScore, details, assignedDate, dueDate;
     Button submit, backBtn;
@@ -34,7 +35,6 @@ public class AddAssignment extends AppCompatActivity {
         submit = findViewById(R.id.btnAddAssignments);
         backBtn = findViewById(R.id.backBtn);
 
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,17 +47,13 @@ public class AddAssignment extends AppCompatActivity {
                         Assignment assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString()), Integer.parseInt(courseId.getText().toString()), Integer.parseInt(categoryId.getText().toString()), Integer.parseInt(maxScore.getText().toString()), details.getText().toString(), assignedDate.getText().toString(), dueDate.getText().toString());
                         dao.addAssignment(assignment);
                         Toast.makeText(AddAssignment.this, assignment.toString() + "\nHas been added.", Toast.LENGTH_SHORT).show();
-
                     } else {
                         Toast.makeText(AddAssignment.this, "Assignment ID already being used", Toast.LENGTH_SHORT).show();
-
                     }
                 }catch (Exception e){
                     Toast.makeText(AddAssignment.this, "Enter valid input", Toast.LENGTH_SHORT).show();
-
                 }
             }
-
         });
 
         /** Returns the user back to the main page */
@@ -68,7 +64,5 @@ public class AddAssignment extends AppCompatActivity {
                 finish();
             }
         });
-
     }
-
 }

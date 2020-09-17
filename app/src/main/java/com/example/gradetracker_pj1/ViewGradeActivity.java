@@ -25,8 +25,10 @@ import com.example.gradetracker_pj1.model.Course;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 public class ViewGradeActivity extends  AppCompatActivity{
+
     List <Enrollment> enrollments;
     public static int course_id_sat;
+
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         Log.d("LoginActivity", "onCreate called");
@@ -45,9 +47,8 @@ public class ViewGradeActivity extends  AppCompatActivity{
                     String course = view_grade.getText().toString();
                     int course_id = Integer.parseInt(course);
 
-                    //GradeDao daoo = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao();
-                    //Grade grades = daoo.searchGrade(course_id,MainActivity.userid);
                     List<Grade> grades = GradeRoom.getGradeRoom(ViewGradeActivity.this).dao().searchGrades(course_id, MainActivity.userid);
+
                     if (grades != null) {
                         ViewGradeActivity.course_id_sat = course_id;
                         Intent intent = new Intent(ViewGradeActivity.this,ViewGradeActivity2.class );
@@ -56,9 +57,10 @@ public class ViewGradeActivity extends  AppCompatActivity{
                         AlertDialog.Builder builder = new AlertDialog.Builder(ViewGradeActivity.this);
                         builder.setTitle("No course found.");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                            /**Finishes alert dialog after user clicks okay */
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //finish();
                             }
                         });
                         AlertDialog dialog = builder.create();
@@ -70,9 +72,10 @@ public class ViewGradeActivity extends  AppCompatActivity{
                     AlertDialog.Builder builder = new AlertDialog.Builder(ViewGradeActivity.this);
                     builder.setTitle("Please enter a valid course ID.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                        /**Finishes alert dialog after user clicks okay */
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
                         }
                     });
                     AlertDialog dialog = builder.create();

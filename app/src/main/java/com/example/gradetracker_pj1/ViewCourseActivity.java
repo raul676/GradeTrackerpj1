@@ -1,7 +1,6 @@
 package com.example.gradetracker_pj1;
 
 import android.content.DialogInterface;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -91,7 +90,7 @@ public class ViewCourseActivity extends AppCompatActivity {
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.GradeRoom;
 public class AdminMenu extends AppCompatActivity {
+
     /** This is the main menu for when the admin logs in*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {

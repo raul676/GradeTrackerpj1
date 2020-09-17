@@ -61,9 +61,9 @@ public class EditCourse extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditCourse.this);
                     builder.setTitle("Enter Valid course ID.");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -132,7 +132,6 @@ public class EditCourse extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-
             }
         });
 

@@ -59,7 +59,7 @@ public class DeleteCourse extends AppCompatActivity {
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
-/** if the course is not not the course will be deleted along with the grades, enrollment and assignments */
+                /** if the course is not not the course will be deleted along with the grades, enrollment and assignments */
                 if (course1 != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
@@ -95,16 +95,15 @@ public class DeleteCourse extends AppCompatActivity {
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //finish();
+                            /**Closes alert Dialog after okay clicked*/
                         }
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
             }
-
-
         });
+
         /** Returns the user back to the main page */
         Button backBtn = findViewById(R.id.back_button);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -113,8 +112,5 @@ public class DeleteCourse extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
     }
 }

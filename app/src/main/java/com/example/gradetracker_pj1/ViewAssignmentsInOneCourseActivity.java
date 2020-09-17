@@ -1,17 +1,13 @@
 package com.example.gradetracker_pj1;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,10 +17,10 @@ import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.GradeRoom;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewAssignmentsInOneCourseActivity extends AppCompatActivity {
+
     static List<Assignment> assignments;
     List<Enrollment> enrollments;
 
@@ -74,8 +70,6 @@ public class ViewAssignmentsInOneCourseActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewAssignmentsInOneCourseActivity.ItemHolder holder, int position){
             holder.bind(assignments.get(position));
-
-
         }
 
         @Override

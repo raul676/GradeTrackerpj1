@@ -24,28 +24,28 @@ public class CreateLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_login);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
         Button new_user = findViewById(R.id.confirm_new_user);
+
         new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-/**A try to get the edit fields input by the user to create a new account  */
+                /**A try to get the edit fields input by the user to create a new account  */
                 try {
                     EditText fname = findViewById(R.id.first_name_user);
                     EditText lname = findViewById(R.id.last_name_user);
                     EditText user = findViewById(R.id.username_edit);
-                   EditText pass = findViewById(R.id.password_edit);
+                    EditText pass = findViewById(R.id.password_edit);
 
                     String first_name = fname.getText().toString();
                     String last_name = lname.getText().toString();
                     String username = user.getText().toString();
-                   String password = pass.getText().toString();
+                    String password = pass.getText().toString();
                     String numbers = "1234567890";
                     String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     boolean is_true_char = false;
                     boolean is_true_num = false;
-/** For Loops that check for length for characters and numbers in username  */
+
+                    /** For Loops that check for length for characters and numbers in username  */
                     for (int i = 0; i < username.length(); i++) {
                         for (int j = 0; j < numbers.length(); j++) {
                             if (username.charAt(i) == numbers.charAt(j)) {
@@ -73,22 +73,18 @@ public class CreateLoginActivity extends AppCompatActivity {
                       User user1 = new User(random_var, username, password, first_name, last_name);
                         GradeDao dao = GradeRoom.getGradeRoom(CreateLoginActivity.this).dao();
                        dao.addUser(user1);
-                        Toast.makeText(CreateLoginActivity.this, "User added, Welcome " + first_name, Toast.LENGTH_SHORT).show(); // non integer input
-
+                        Toast.makeText(CreateLoginActivity.this, "User added, Welcome " + first_name, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(CreateLoginActivity.this, "Username doesn't contain char & numbers ", Toast.LENGTH_SHORT).show(); // non integer input
-
+                        Toast.makeText(CreateLoginActivity.this, "Username doesn't contain char & numbers ", Toast.LENGTH_SHORT).show();
                     }
-
                 }/**A catch to check if user input invaild input  */
                 catch (Exception e){
                     Toast.makeText(CreateLoginActivity.this, "Enter valid input", Toast.LENGTH_SHORT).show(); // non integer input
-
                 }
             }
         });
 
-
+            /** Returns user to main menu*/
         Button back = findViewById(R.id.back_new_user);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +92,5 @@ public class CreateLoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

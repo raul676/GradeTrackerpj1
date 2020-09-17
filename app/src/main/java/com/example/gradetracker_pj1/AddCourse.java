@@ -17,11 +17,10 @@ public class AddCourse extends AppCompatActivity{
     /**References */
     EditText courseId, instructor, course_title, startDate, description, endDate;
     Button submit;
-
     GradeDao gradeDao = GradeRoom.getGradeRoom(this).dao();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){ // starts application
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcourse);
 
@@ -31,10 +30,7 @@ public class AddCourse extends AppCompatActivity{
         description = findViewById(R.id.Discription);
         startDate = findViewById(R.id.startDate);
         endDate = findViewById(R.id.endDate);
-
-
         submit = findViewById(R.id.btnAddCourse);
-
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,27 +46,23 @@ public class AddCourse extends AppCompatActivity{
                         gradeDao.addCourse(course);
 
                         Toast.makeText(AddCourse.this, course.toString(), Toast.LENGTH_SHORT).show();
-                        // Toast.makeText(AddCourse.this, "submit button works", Toast.LENGTH_SHORT).show();
                     }
 
                 } /**A catch if there is invaild input */
                 catch (Exception e) {
-                    Toast.makeText(AddCourse.this,"Error ", Toast.LENGTH_SHORT).show(); // non integer input
-                   // course = new Course(-1,"error","error","error","error","error"); // default values
+                    Toast.makeText(AddCourse.this,"Error ", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
+        /**Returns user to the main page */
         Button back_button = findViewById(R.id.back_button_add);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });
-
     }
 
 

@@ -1,6 +1,5 @@
 package com.example.gradetracker_pj1;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,28 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.Grade;
-import com.example.gradetracker_pj1.model.Course;
 import com.example.gradetracker_pj1.model.GradeCategory;
 import com.example.gradetracker_pj1.model.GradeRoom;
 
-import org.w3c.dom.Text;
-
 public class ViewGradeActivity2 extends  AppCompatActivity{
+
     List <Grade> grades;
     List<GradeCategory>gradeCategories;
 
@@ -50,7 +43,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new ViewGradeActivity2.Adapter());
 
-/** A recycler view to get the grade categories for the corresponding course the user has input*/
+        /** A recycler view to get the grade categories for the corresponding course the user has input*/
         gradeCategories = GradeRoom.getGradeRoom(this).dao().searchGradeCategory(ViewGradeActivity.course_id_sat);
         Log.d("ViewCourseActivity", "Courses's" + gradeCategories.size());
         RecyclerView rv2 = findViewById(R.id.recycler_view_grades_category);
@@ -72,7 +65,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         /**A message to show the user their final grade for a course */
         TextView msg2 = findViewById(R.id.grade_letter);
         total = total/ grades.size();
-       String final_letter_grade =  returnLetterGrade(total);
+        String final_letter_grade =  returnLetterGrade(total);
         msg2.setText("Total Letter Grade: " + final_letter_grade);
 
         Button main_menu = findViewById(R.id.back_button_grade);
@@ -83,8 +76,8 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
                 startActivity(intent);
             }
         });
-
     }
+
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override
@@ -104,6 +97,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         }
 
     }
+
     private class ItemHolder extends RecyclerView.ViewHolder {
 
         public ItemHolder(LayoutInflater inflater, ViewGroup parent) {
