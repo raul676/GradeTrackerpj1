@@ -69,11 +69,12 @@ public class Assignment {
     @Override
     public String toString()
     {
-        return "Assignment Details\n" +
+        return "Course ID: " + course_id + "\n"+
+                "Assignment Details\n" +
                 details + "\n" +
                 "Max Score: " + max_score + "\n"+
                 "Due Date: " + due_date + "\n"+
-                "Course ID: " + course_id + "\n"+
+
                 "Assignment ID: " + assignment_id + "\n"+
                 "Course Category ID: " + category_id;
     }

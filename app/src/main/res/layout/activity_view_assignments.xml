@@ -25,12 +25,12 @@
         android:gravity="center"
         android:textSize="25dp"
         android:background="@color/design_default_color_secondary"
-        android:text="These are your assignments"/>
+        android:text="These are your enrolled courses"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_2"
+        android:id="@+id/recycler_view_enrolled_courses"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_weight="1" />
 
     <TextView
@@ -38,7 +38,26 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:background="@color/design_default_color_secondary"
-        android:text="Select the Course you'd like to enroll in. Please enter the correct course ID to enroll in course."/>
+        android:text="Select the Course to view assignments by course ID."/>
+
+    <EditText
+        android:id="@+id/course_entry_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Enter Course ID here"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_assignments"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Course"
+        android:id="@+id/search_assignments_button"/>
 
     <Button
         android:layout_width="match_parent"
