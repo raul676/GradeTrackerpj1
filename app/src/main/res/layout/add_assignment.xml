@@ -5,100 +5,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/textViewAddAssignment"
+        android:layout_width="288dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="650dp"
+        android:text="@string/add_course_information"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewAddAssignment"
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:text="@string/add_course_information" />
+    <EditText
+        android:id="@+id/courseId"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="508dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/course_id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/assignmentId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/assignment_id"
-            android:inputType="textPersonName"
-            android:autofillHints="" />
+    <EditText
+        android:id="@+id/categoryId"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="241dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="445dp"
+        android:ems="10"
+        android:hint="Category ID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/courseId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/course_id"
-            android:inputType="textPersonName"
-            android:autofillHints="" />
+    <EditText
+        android:id="@+id/maxScore"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="299dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="387dp"
+        android:ems="10"
+        android:hint="Max score"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/categoryId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Category ID"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/assignmentId"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="566dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/assignment_id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/maxScore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Max score"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/dueDate"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="236dp"
+        android:ems="10"
+        android:hint="Due Date"
+        android:inputType="date|textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/earnedScore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Earned score"
-            android:inputType="textPersonName"
-            android:text="Name" />
+    <Button
+        android:id="@+id/btnAddAssignments"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="525dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="168dp"
+        android:text="submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Details"
-            android:inputType="textPersonName"
-            android:text="Name" />
+    <EditText
+        android:id="@+id/assignmentDate"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="405dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="281dp"
+        android:ems="10"
+        android:hint="Assignment Date"
+        android:inputType="date|textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/assignmentDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Assignment Date"
-            android:inputType="date|textPersonName" />
+    <EditText
+        android:id="@+id/details"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="333dp"
+        android:ems="10"
+        android:hint="Details"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/dueDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Due Date"
-            android:inputType="date|textPersonName" />
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="666dp"
+        android:layout_marginEnd="312dp"
+        android:layout_marginBottom="17dp"
+        android:text="BACK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnAddAssignments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="submit" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

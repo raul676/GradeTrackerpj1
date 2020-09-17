@@ -67,6 +67,8 @@ public class DeleteCourse extends AppCompatActivity {
                             //dao.deleteAssignment(course1);
                             Log.d("DeleteCourse", "deletingcourse");
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
+
+
                             startActivity(intent);
                         }
 

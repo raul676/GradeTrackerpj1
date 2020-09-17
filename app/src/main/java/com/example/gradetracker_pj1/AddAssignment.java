@@ -1,5 +1,6 @@
 package com.example.gradetracker_pj1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import com.example.gradetracker_pj1.model.GradeDao;
 public class AddAssignment extends AppCompatActivity {
     // references
     EditText assignmentId, courseId, categoryId, maxScore, earnedScore, details, assignedDate, dueDate;
-    Button submit;
+    Button submit, backBtn;
 
     GradeDao gradeDao;
 
@@ -34,11 +35,13 @@ public class AddAssignment extends AppCompatActivity {
         courseId = findViewById(R.id.courseId);
         categoryId = findViewById(R.id.categoryId);
         maxScore = findViewById(R.id.maxScore);
-        earnedScore = findViewById(R.id.earnedScore);
+      //  earnedScore = findViewById(R.id.earnedScore); removed from GradeRoom
         details = findViewById(R.id.details);
         assignedDate = findViewById(R.id.assignmentDate);
         dueDate = findViewById(R.id.dueDate);
         submit = findViewById(R.id.btnAddCourse);
+        backBtn = findViewById(R.id.backBtn);
+
 
         // button listener
 
@@ -75,6 +78,14 @@ public class AddAssignment extends AppCompatActivity {
 
 
 
+            }
+        });
+        /** Returns the user back to the main page */
+        Button backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

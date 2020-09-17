@@ -10,6 +10,7 @@ public class AddCourseTest {
 
     @Test
     public void onCreate() {
+
         Course course = new Course( 0001,"smith","art", "Least favorite class", "01-01-2021", "06/01/2021");
         assertEquals(0001,course.getCourse_id());
         assertEquals("smith", course.getInstructor());

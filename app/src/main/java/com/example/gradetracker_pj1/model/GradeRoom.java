@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.Update;
 
-@Database(entities = {Assignment.class,Course.class,Enrollment.class,Grade.class,GradeCategory.class,User.class}, version =1)
+@Database(entities = {Assignment.class,Course.class,Enrollment.class,Grade.class,GradeCategory.class,User.class}, version = 1)
 public abstract class GradeRoom extends RoomDatabase {
     private static GradeRoom instance;
 
