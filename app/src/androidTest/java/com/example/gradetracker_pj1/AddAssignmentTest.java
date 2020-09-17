@@ -8,6 +8,9 @@ import static org.junit.Assert.*;
 
 public class AddAssignmentTest {
 
+    /** A unit test to test add assignment by checking the values of the new assignment by
+     * asserting the values are equal
+     */
     @Test
     public void onCreate() {
         Assignment assignment = new Assignment(0001,0002,0003,100,"details","01/01/2021", "01/06/2021");

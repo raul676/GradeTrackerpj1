@@ -39,6 +39,7 @@ public class ViewGradeActivity extends  AppCompatActivity{
         view_grade_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**A try to get the course id and list of grades if the grades are not null the user will be directed to another view grade activity*/
                 try {
                     EditText view_grade = findViewById(R.id.course_id_text);
                     String course = view_grade.getText().toString();
@@ -63,6 +64,7 @@ public class ViewGradeActivity extends  AppCompatActivity{
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    /**A catch if the user has input a wrong course ID */
                 }catch (Exception e)
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(ViewGradeActivity.this);
@@ -79,6 +81,7 @@ public class ViewGradeActivity extends  AppCompatActivity{
             }
         });
 
+
         Button main_menu = findViewById(R.id.main_menu_grades);
         main_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +89,8 @@ public class ViewGradeActivity extends  AppCompatActivity{
                 finish();
             }
         });
+
+        /** A recycler view to get courses the student can enroll in  */
         enrollments= GradeRoom.getGradeRoom(this).dao().searchEnrolledCourse(MainActivity.userid);
         Log.d("ViewCourseActivity", "Courses's" + enrollments.size());
         RecyclerView rv = findViewById(R.id.recycler_view_grades);
@@ -93,6 +98,10 @@ public class ViewGradeActivity extends  AppCompatActivity{
         rv.setAdapter(new Adapter());
 
     }
+    /**
+     * The Adapter for the RecyclerView for ItemHolders, the constructor helps create the view
+     * and the bind view binds the items to the holder
+     */
     private class Adapter extends RecyclerView.Adapter<ItemHolder> {
 
         @Override
