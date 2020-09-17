@@ -32,7 +32,7 @@ public class AddAssignment extends AppCompatActivity {
         details = findViewById(R.id.details);
         assignedDate = findViewById(R.id.assignmentDate);
         dueDate = findViewById(R.id.dueDate);
-        submit = findViewById(R.id.btnAddCourse);
+        submit = findViewById(R.id.btnAddAssignments);
         backBtn = findViewById(R.id.backBtn);
 
 
