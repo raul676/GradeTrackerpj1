@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,18 +23,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="22dp"
         android:background="@color/design_default_color_secondary"
-        android:text="Here are your current courses you are enrolled in. Please Enter the 'Class ID' of the class Grade you'd like to see."/>
+        android:gravity="center"
+        android:text="Here are your current courses you are enrolled in. Please Enter the 'Class ID' of the class Grade you'd like to see."
+        android:textSize="22dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_grades"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_weight="1"
-        android:background="#A6CFD5" />
+        android:layout_weight="1" />
 
 
     <TextView

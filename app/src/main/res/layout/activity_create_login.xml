@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Welcome new User, Please Fill out the Information Necessary to create a New Login"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#F56476"
         android:textSize="24dp" />
 
     <TextView
