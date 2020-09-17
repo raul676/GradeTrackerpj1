@@ -1,57 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-141dp"
-        tools:layout_editor_absoluteY="-166dp">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="1dp" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <Button
-            android:id="@+id/addCourse"
-            android:layout_width="273dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="210dp"
-            android:layout_marginBottom="10dp"
-            android:text="Add A Course"
-            tools:layout_editor_absoluteX="78dp"
-            tools:layout_editor_absoluteY="187dp" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <Button
-            android:id="@+id/deleteCourse"
-            android:layout_width="273dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|fill_vertical"
-            android:layout_marginBottom="10dp"
-            android:text="Delete A Course"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="318dp" />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Please Select a course by entering the appropriate Coruse ID"
+    android:background="@color/design_default_color_secondary"
+    android:gravity = "center"
+    android:textSize="23dp"/>
 
-        <Button
-            android:id="@+id/back_Main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Back"
-            tools:layout_editor_absoluteX="161dp"
-            tools:layout_editor_absoluteY="457dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Enter Course ID:"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/enter_course_id_edit" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Courser"
+        android:id="@+id/search_course_edit"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_course_edit"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Instructor"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_instructor"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit End Date"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_end_date"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Course"
+        android:id="@+id/edit_course_final"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_course_back"
+        android:text="back"/>
+
+
+
+</LinearLayout>

@@ -21,6 +21,7 @@ import android.widget.EditText;
 import java.security.cert.CRLException;
 public class MainActivity extends AppCompatActivity {
 
+    /**Variables needed for usernames and passwords */
     public static String username= "";
     public static int userid=0;
     public static final String admin_user = "dr.sithlord";
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = pass.getText().toString();
                 boolean is_true = false;
 
+                /** A Loop to check if the Admin is logging in or not, if log in is successful a welcome message appears containing the Admin's name*/
                 if(username.equals(MainActivity.admin_user) && password.equals(MainActivity.admin_password))
                 {
                     Intent intent = new Intent(MainActivity.this, AdminMenu.class);
@@ -52,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
                     is_true= true;
                 }
 
-
                 GradeDao dao = GradeRoom.getGradeRoom(MainActivity.this).dao();
                 User user1 = dao.loginUser(username, password);
+
+                /** A loop to check if user is logging in,if log in is successful a welcome message appears containing the user's name*/
                 if(user1 != null)
                 {
                     MainActivity.username = user1.getFirst_name() + " " + user1.getLast_name();
