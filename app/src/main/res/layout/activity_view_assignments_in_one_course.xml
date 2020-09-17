@@ -23,22 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="25dp"
         android:background="@color/design_default_color_secondary"
-        android:text="These are your enrolled courses"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_enrolled_courses"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="1" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/design_default_color_secondary"
-        android:text="All your assignments:"/>
+        android:text="Assignments:"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_assignments"
@@ -49,7 +35,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main Menu"
-        android:id="@+id/main_menu_course"/>
+        android:text="Back"
+        android:id="@+id/back"/>
 
 </LinearLayout>

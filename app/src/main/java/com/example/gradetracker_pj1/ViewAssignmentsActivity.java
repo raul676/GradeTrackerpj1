@@ -21,6 +21,7 @@ import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Enrollment;
 import com.example.gradetracker_pj1.model.Grade;
 import com.example.gradetracker_pj1.model.GradeRoom;
+import com.example.gradetracker_pj1.ViewAssignmentsInOneCourseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,43 +37,6 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_assignments);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Button view_grade_button = findViewById(R.id.search_assignments_button);
-        view_grade_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    EditText view_grade = findViewById(R.id.course_entry_field);
-                    String course = view_grade.getText().toString();
-                    int course_id = Integer.parseInt(course);
-
-                    //GradeDao daoo = GradeRoom.getGradeRoom(ViewAssignmentsActivity.this).dao();
-                    //Grade grades = daoo.searchGrade(course_id,MainActivity.userid);
-                    ArrayList<Assignment> assignmentsFilter = new ArrayList<Assignment>();
-                    for(Assignment i : assignments) {
-                        if(i.getCourse_id() == course_id){
-                            assignmentsFilter.add(i);
-                        }
-                    }
-
-                    ViewAssignmentsActivity.assignments = assignmentsFilter;
-                    Intent intent = new Intent(ViewAssignmentsActivity.this,ViewAssignmentsActivity.class );
-                    startActivity(intent);
-                }catch (Exception e)
-                {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ViewAssignmentsActivity.this);
-                    builder.setTitle("Please enter a valid course ID.");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //finish();
-                        }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-            }
-        });
 
         /** If the user clicks the return button they are lead back to the main menu */
         Button return_main_button = findViewById(R.id.main_menu_course);
@@ -93,6 +57,24 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         /** A list to get all assignments, then if the assignment is not null a Recycler view is implemented to show assignments */
         if(assignments == null) {
             assignments = GradeRoom.getGradeRoom(this).dao().getAllAssignments();
+            ArrayList<Assignment> assignments2 = new ArrayList<Assignment>();
+
+            boolean here;
+            int number = assignments.size();
+            for(Assignment i : assignments) {
+                here = false;
+                for (Enrollment j : enrollments) {
+                    if (i.getCourse_id() == j.getCourse_id()) {
+                        here = true;
+                        break;
+                    }
+                }
+                if (here){
+                    assignments2.add(i);
+                }
+            }
+
+            assignments = assignments2;
         }
 
         if(assignments != null)
@@ -118,6 +100,8 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewAssignmentsActivity.ItemHolder holder, int position){
             holder.bind(assignments.get(position));
+
+
         }
 
         @Override
@@ -173,6 +157,41 @@ public class ViewAssignmentsActivity extends AppCompatActivity {
         public void bind(Enrollment f ) {
             TextView item = itemView.findViewById(R.id.item_id_2);
             item.setText(f.toString());
+
+            item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //use position value  to get clicked data from list
+                    try {
+                        int course_id = f.getCourse_id();
+
+                        //GradeDao daoo = GradeRoom.getGradeRoom(ViewAssignmentsActivity.this).dao();
+                        //Grade grades = daoo.searchGrade(course_id,MainActivity.userid);
+                        ArrayList<Assignment> assignmentsFilter = new ArrayList<Assignment>();
+                        for(Assignment i : assignments) {
+                            if(i.getCourse_id() == course_id){
+                                assignmentsFilter.add(i);
+                            }
+                        }
+
+                        ViewAssignmentsInOneCourseActivity.assignments = assignmentsFilter;
+                        Intent intent = new Intent(ViewAssignmentsActivity.this, ViewAssignmentsInOneCourseActivity.class);
+                        startActivity(intent);
+                    }catch (Exception e)
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ViewAssignmentsActivity.this);
+                        builder.setTitle("Please enter a valid course ID.");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }
+            });
         }
     }
 }
