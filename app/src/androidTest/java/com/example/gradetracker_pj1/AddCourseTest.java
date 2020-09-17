@@ -21,8 +21,6 @@ public class AddCourseTest {
         assertEquals("01-01-2021", course.getStart_date());
         assertEquals("06/01/2021", course.getEnd_date());
 
-
-
     }
 }
 

@@ -41,6 +41,7 @@ import static org.junit.Assert.assertTrue;
         @Test
         public void onClick() {
            Context DeleteCourse = InstrumentationRegistry.getInstrumentation().getTargetContext();
+
             List<Course> courseList = GradeRoom.getGradeRoom(DeleteCourse).dao().getAllCourses();
 
             Course course1 = new Course(383, "Dr. Bruns", "Into to Data Science", "Data", "8/24/20", "12/16/20");

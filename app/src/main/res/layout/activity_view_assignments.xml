@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,34 +23,38 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25dp"
         android:background="@color/design_default_color_secondary"
-        android:text="These are your enrolled courses"/>
+        android:gravity="center"
+        android:text="These are your enrolled courses"
+        android:textSize="25dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_enrolled_courses"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#A6CFD5" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:background="@color/design_default_color_secondary"
-        android:text="All your assignments:"/>
+        android:gravity="center"
+        android:text="All your assignments:" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_assignments"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#A6CFD5" />
 
     <Button
+        android:id="@+id/main_menu_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
         android:text="Main Menu"
-        android:id="@+id/main_menu_course"/>
+        android:textColor="#DBFCFF" />
 
 </LinearLayout>

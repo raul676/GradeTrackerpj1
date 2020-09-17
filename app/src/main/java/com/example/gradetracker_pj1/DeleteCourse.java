@@ -80,7 +80,6 @@ public class DeleteCourse extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
 
-
                 }
             }
 
@@ -89,6 +88,14 @@ public class DeleteCourse extends AppCompatActivity {
         /** Returns the user back to the main page */
         Button backBtn = findViewById(R.id.back_button);
         backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        Button back = findViewById(R.id.back_button_delete);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

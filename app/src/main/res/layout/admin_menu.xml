@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A6CFD5"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,12 +19,12 @@
         tools:layout_editor_absoluteX="1dp" />
 
     <TextView
+        android:id="@+id/welcome_user_msg_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity = "center"
-        android:textSize="30dp"
-        android:id="@+id/welcome_user_msg_admin"
-        android:text=""/>
+        android:gravity="center"
+        android:text=""
+        android:textSize="30dp" />
 
 
     <Button
@@ -34,8 +34,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Add Assignment"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="78dp"
+
+
         tools:layout_editor_absoluteY="187dp" />
 
     <Button
@@ -44,9 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Delete Assignment"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="78dp"
         tools:layout_editor_absoluteY="187dp" />
+
     <Button
         android:id="@+id/delete_course_button"
         android:layout_width="273dp"
@@ -54,7 +61,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Delete Course"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="78dp"
         tools:layout_editor_absoluteY="187dp" />
 
@@ -64,7 +73,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Add Course"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
 
@@ -74,7 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Edit Assignment"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
 
@@ -84,7 +97,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners"
         android:text="Edit Course"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="318dp" />
 
@@ -94,10 +109,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="@drawable/rounded_corners"
         android:text="logout"
+        android:textColor="#DBFCFF"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="457dp" />
-
 
 
 </LinearLayout>

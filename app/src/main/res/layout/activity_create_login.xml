@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,23 +23,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="24dp"
         android:gravity="center"
-        android:text = "Welcome new User, Please Fill out the Information Necessary to create a New Login"/>
+        android:text="Welcome new User, Please Fill out the Information Necessary to create a New Login"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Valid username."/>
+        android:layout_height="37dp"
+        android:text="Enter Valid username." />
 
     <EditText
+        android:id="@+id/username_edit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/username_edit"/>
-
-
-
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

@@ -32,37 +32,44 @@
         android:id="@+id/recycler_view_grades"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#A6CFD5" />
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity = "center"
-        android:textSize="30dp"
         android:id="@+id/gpa_student"
-        android:text = "Please Enter Course ID Here"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ENTER COURSE ID"
+        android:textSize="30dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text = "Enter Course ID Here"/>
+        android:layout_height="57dp"
+        android:text="Enter Course ID Here" />
+
     <EditText
+        android:id="@+id/course_id_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/course_id_text"/>
+        android:hint="ENTER COURSE ID" />
 
     <Button
+        android:id="@+id/course_id_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text= "View Course Grades"
-        android:id="@+id/course_id_button"/>
+        android:background="@drawable/rounded_corners"
+        android:text="View Course Grades"
+        android:textColor="#DBFCFF" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/main_menu_grades"
-        android:text="main Menu"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        android:text="main Menu"
+        android:textColor="#DBFCFF" />
 
 
 </LinearLayout>
