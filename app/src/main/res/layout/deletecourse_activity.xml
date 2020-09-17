@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,35 +21,38 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-        <TextView
-            android:id="@+id/textVewCourseID"
-            android:layout_width="300dp"
-            android:layout_height="29dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
-            android:text="Enter Course ID: "
-            android:textAlignment="center"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textVewCourseID"
+        android:layout_width="300dp"
+        android:layout_height="29dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:text="Enter Course ID: "
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/courseID" />
-
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Enter"
-            android:id="@+id/enter_button" />
-
+    <EditText
+        android:id="@+id/courseID"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/back_button_delete"
-        android:layout_width="300dp"
+        android:id="@+id/enter_button"
+        android:layout_width="279dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corners"
+        android:text="Enter" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_corners"
         android:text="Back" />
+
 
 </LinearLayout>

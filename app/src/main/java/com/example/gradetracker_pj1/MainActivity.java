@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
           
         });
 
-        Button create_login = findViewById(R.id.create_login_button_main);
+        Button create_login = findViewById(R.id.create_login_button);
         create_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

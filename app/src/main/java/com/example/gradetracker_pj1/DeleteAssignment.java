@@ -67,7 +67,7 @@ public class DeleteAssignment extends AppCompatActivity {
 
                 Assignment assignment1 = dao.searchAssignment2(assignment_id);
 
-                if (assignment != null) {
+                if (assignment1 != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteAssignment.this);
                     builder.setTitle("This Assignment will be deleted ");
@@ -75,13 +75,11 @@ public class DeleteAssignment extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //deleting
-                            GradeDao dao = GradeRoom.getGradeRoom(DeleteAssignment.this).dao();
-                            dao.deleteAssignment(assignment1);
+                            GradeDao daoo = GradeRoom.getGradeRoom(DeleteAssignment.this).dao();
+                            daoo.deleteAssignment(assignment1);
                             //dao.deleteAssignment(course1);
                             Log.d("DeleteAssignment", "deletingAssignment");
-                            Intent intent = new Intent(DeleteAssignment.this, MainMenu.class);
-
-
+                            Intent intent = new Intent(DeleteAssignment.this, AdminMenu.class);
                             startActivity(intent);
                         }
 
@@ -91,6 +89,21 @@ public class DeleteAssignment extends AppCompatActivity {
 
 
                 }
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DeleteAssignment.this);
+                    builder.setTitle("This Assignment doesn't exist.");
+                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+
+
             }
 
 

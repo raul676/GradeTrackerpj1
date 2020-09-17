@@ -13,7 +13,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Delete;
 
+import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Course;
+import com.example.gradetracker_pj1.model.Enrollment;
+import com.example.gradetracker_pj1.model.Grade;
+import com.example.gradetracker_pj1.model.GradeCategory;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
 import com.example.gradetracker_pj1.model.User;
@@ -56,26 +60,45 @@ public class DeleteCourse extends AppCompatActivity {
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
 /** if the course is not not the course will be deleted along with the grades */
-                if (course != null) {
+                if (course1 != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
                     builder.setTitle("This course will be deleted ");
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            List<Grade> grades = GradeRoom.getGradeRoom(DeleteCourse.this).dao().searchGrades_toDelete(course_id);
+                            List<Assignment> assignments = GradeRoom.getGradeRoom(DeleteCourse.this).dao().searchAssignment_to_delete(course_id);
+                            List<Enrollment> enrollments = GradeRoom.getGradeRoom(DeleteCourse.this).dao().searchEnrolledCourses_to_delete(course_id);
+                            List<GradeCategory> gradeCategories = GradeRoom.getGradeRoom(DeleteCourse.this).dao().searchGradeCategorys_to_deltet(course_id);
 
                             GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                             dao.deleteCourse(course1);
-                            dao.deleteGradeCategory(course1);
+                            dao.deleteAssignments(assignments);
+                            dao.deleteEnrollments(enrollments);
+                            dao.deleteGradeCategorys(gradeCategories);
+                            dao.deleteGrades(grades);
+
                             Log.d("DeleteCourse", "deletingcourse");
-                            Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
-                            startActivity(intent);
+                            finish();
                         }
 
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
 
+                }
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
+                    builder.setTitle("Course does not exist.");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //finish();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
 
@@ -90,13 +113,6 @@ public class DeleteCourse extends AppCompatActivity {
             }
         });
 
-        Button back = findViewById(R.id.back_button_delete);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
 
     }

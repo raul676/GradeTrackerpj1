@@ -25,7 +25,7 @@ public class CreateLoginActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button new_user = findViewById(R.id.confirm_new_use);
+        Button new_user = findViewById(R.id.confirm_new_user);
         new_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

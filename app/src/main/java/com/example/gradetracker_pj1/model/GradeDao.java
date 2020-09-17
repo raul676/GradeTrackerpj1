@@ -50,14 +50,27 @@ public interface GradeDao {
     @Query("select * from Grade where course_id=:course_id and student_id =:student_id")
     Grade searchGrade(int course_id, int student_id);
 
+    @Query("select * from Grade where course_id=:course_id")
+    List<Grade> searchGrades_toDelete(int course_id);
+
     @Query("select * from Enrollment where course_id =:course_id and student_id =:student_id")
     Enrollment searchEnrollment(int course_id, int student_id);
+
+    @Query("select * from GradeCategory where course_id=:course_id ")
+    List<GradeCategory> searchGradeCategorys_to_deltet(int course_id );
 
     @Query("select * from GradeCategory where course_id=:course_id ")
     List<GradeCategory> searchGradeCategory(int course_id );
 
     @Query("select * from Enrollment where  student_id=:student_id")
     List <Enrollment> searchEnrolledCourse( int student_id );
+
+    @Query("select * from Enrollment where  course_id=:course_id")
+    List <Enrollment> searchEnrolledCourses_to_delete( int course_id );
+
+    @Query("select * from Assignment where course_id=:course_id")
+    List<Assignment> searchAssignment_to_delete(int course_id);
+
 
     @Insert
     void addAssignment(Assignment assignment);
@@ -76,17 +89,24 @@ public interface GradeDao {
     void deleteCourse(Course course);
 
     @Delete
-    void deleteEnrollment(Enrollment enrollment);
+    void deleteEnrollments(List<Enrollment> enrollment);
 
     @Delete
     void deleteAssignment(Assignment assignment);
 
     @Delete
     void deleteGrades(List<Grade> grades);
+
     @Delete
-    void deleteGradeCategory(Course course);
+    void deleteAssignments(List<Assignment> assignments);
+    @Delete
+    void deleteGradeCategorys(List<GradeCategory> gradeCategories);
     @Update
     void updateAssignment(List<Assignment> assignments);
     @Update
     void updateCourse(List<Course> courses);
+
+
+
+
 }
