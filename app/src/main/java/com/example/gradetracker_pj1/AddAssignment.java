@@ -12,17 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Course;
 import com.example.gradetracker_pj1.model.GradeDao;
+import com.example.gradetracker_pj1.model.GradeRoom;
 
 public class AddAssignment extends AppCompatActivity {
     // references
     EditText assignmentId, courseId, categoryId, maxScore, earnedScore, details, assignedDate, dueDate;
     Button submit, backBtn;
 
-    GradeDao gradeDao;
-
-
-
-
+    GradeDao gradeDao = GradeRoom.getGradeRoom(this).dao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){ // starts application
@@ -48,21 +45,27 @@ public class AddAssignment extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Assignment assignment;
                 try {
-                    assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString()), Integer.parseInt(courseId.getText().toString()), Integer.parseInt(categoryId.getText().toString()),Integer.parseInt(maxScore.getText().toString()), details.getText().toString(), assignedDate.getText().toString(), dueDate.getText().toString());
-                    Toast.makeText(AddAssignment.this, assignment.toString(), Toast.LENGTH_SHORT).show();
-                    // Toast.makeText(AddAssignment.this, "submit button works", Toast.LENGTH_SHORT).show();
+                    if(gradeDao.searchCourse(Integer.parseInt(assignmentId.getText().toString())) != null)
+                    {
+                        Toast.makeText(AddAssignment.this,"Assignment ID already exists ", Toast.LENGTH_SHORT).show(); // non integer input
+                    }
+                    else {
+                        Assignment assignment = new Assignment(Integer.parseInt(assignmentId.getText().toString()), Integer.parseInt(courseId.getText().toString()), Integer.parseInt(categoryId.getText().toString()),Integer.parseInt(maxScore.getText().toString()), details.getText().toString(), assignedDate.getText().toString(), dueDate.getText().toString());
+                        gradeDao.addAssignment(assignment);
+
+                        Toast.makeText(AddAssignment.this, assignment.toString(), Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(AddAssignment.this, "submit button works", Toast.LENGTH_SHORT).show();
+                    }
 
                 } catch (Exception e) {
                     Toast.makeText(AddAssignment.this,"Error ", Toast.LENGTH_SHORT).show(); // non integer input
-                    assignment = new Assignment(-1,-1,-1,-1,"error",null,null); // default values
-
+                    // course = new Course(-1,"error","error","error","error","error"); // default values
                 }
 
-               gradeDao.addAssignment(assignment);
             }
         });
+
         /** Returns the user back to the main page */
         Button backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
