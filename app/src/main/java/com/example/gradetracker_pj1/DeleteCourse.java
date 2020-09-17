@@ -15,6 +15,7 @@ import androidx.room.Delete;
 
 import com.example.gradetracker_pj1.model.Assignment;
 import com.example.gradetracker_pj1.model.Course;
+import com.example.gradetracker_pj1.model.Grade;
 import com.example.gradetracker_pj1.model.GradeCategory;
 import com.example.gradetracker_pj1.model.GradeDao;
 import com.example.gradetracker_pj1.model.GradeRoom;
@@ -27,6 +28,7 @@ public class DeleteCourse extends AppCompatActivity {
 
     List<Course> courses;
     List<GradeCategory> searchGradeCategory;
+    List<Grade> grades;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("DeleteCourse", "onCreate called");
@@ -56,8 +58,9 @@ public class DeleteCourse extends AppCompatActivity {
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 searchGradeCategory = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllGradeCategorys();
+               // grades = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllGrades();
                 Course course1 = dao.searchCourse(course_id);
-              //  GradeCategory gradeCategory1  = dao.searchGradeCategory(course_id);
+
 
                 /**if the course is not null it will be deleted, the assignments with the corresponding course id will be deleted as well */
                 if (course != null) {
@@ -70,6 +73,7 @@ public class DeleteCourse extends AppCompatActivity {
                             GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                             dao.deleteCourse(course1);
                             dao.deleteGradeCategory(course1);
+                            //dao.deleteAssignment(course1);
                             Log.d("DeleteCourse", "deletingcourse");
                             finish();
                         }
