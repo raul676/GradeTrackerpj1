@@ -67,6 +67,7 @@ public class AddCourse extends AppCompatActivity{
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });

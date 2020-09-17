@@ -65,7 +65,7 @@ public class DeleteAssignment extends AppCompatActivity {
                 assignments = GradeRoom.getGradeRoom(DeleteAssignment.this).dao().getAllAssignments();
 
 
-                Assignment assignment1 = dao.searchAssignment(assignment_id);
+                Assignment assignment1 = dao.searchAssignment2(assignment_id);
 
                 if (assignment != null) {
 

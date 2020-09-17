@@ -41,6 +41,9 @@ public interface GradeDao {
     @Query("select * from Assignment where assignment_id=:assignment_id")
     List<Assignment> searchAssignment(int assignment_id);
 
+    @Query("select * from Assignment where assignment_id=:assignment_id")
+    Assignment searchAssignment2(int assignment_id);
+
     @Query("select * from Grade where course_id =:course_id and student_id =:student_id")
     List<Grade> searchGrades(int course_id, int student_id);
 

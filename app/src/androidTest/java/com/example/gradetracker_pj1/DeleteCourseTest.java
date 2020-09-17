@@ -25,11 +25,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(AndroidJUnit4.class)
     public class DeleteCourseTest {
 
-        /**
-         * For the purpose of this test this course id will be used
-         */
         private GradeDao dao;
-
 
     /** on create test, gets the context (database) required to do test  */
         @Before
@@ -41,17 +37,20 @@ import static org.junit.Assert.assertTrue;
 
         /** testing on click when deletion occurs by adding an course to a list then deleting course and checking if the
          * list is empty
-         * */
+         */
         @Test
         public void onClick() {
            Context DeleteCourse = InstrumentationRegistry.getInstrumentation().getTargetContext();
-
             List<Course> courseList = GradeRoom.getGradeRoom(DeleteCourse).dao().getAllCourses();
+
             Course course1 = new Course(383, "Dr. Bruns", "Into to Data Science", "Data", "8/24/20", "12/16/20");
+
             courseList.add(course1);
             assertNotNull(course1);
+
             GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse).dao();
             dao.deleteCourse(course1);
+
             assertTrue(!courseList.isEmpty());
 
         }

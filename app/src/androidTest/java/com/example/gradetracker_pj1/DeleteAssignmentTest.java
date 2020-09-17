@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 public class DeleteAssignmentTest {
 
-    private DeleteAssignment deleteAssignment;
+   // private DeleteAssignment deleteAssignment;
 
     @Before
     public void createDB(){
@@ -36,6 +36,8 @@ public class DeleteAssignmentTest {
 
     @Test
     public void OnClick() {
+
+        Context deleteAssignment = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         List<Assignment> assignmentList =GradeRoom.getGradeRoom(deleteAssignment).dao().getAllAssignments();
         Assignment assignment1 = new Assignment(100, 10,1,10,"hello","09/20/20","12");
