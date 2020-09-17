@@ -74,11 +74,18 @@ public class DeleteCourse extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
 
-
                 }
             }
 
 
+        });
+
+        Button back = findViewById(R.id.back_button_delete);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
 
 

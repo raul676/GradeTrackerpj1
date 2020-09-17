@@ -55,8 +55,8 @@
         android:id="@+id/backBtn"
         android:layout_width="125dp"
         android:layout_height="46dp"
-        android:layout_marginTop="672dp"
-        android:layout_marginEnd="274dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="172dp"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

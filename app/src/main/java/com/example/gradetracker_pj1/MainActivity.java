@@ -83,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
           
         });
 
-       /* Button create_login = findViewById(R.id.create_login_button);
+        Button create_login = findViewById(R.id.create_login_button_main);
         create_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CreateLoginActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override

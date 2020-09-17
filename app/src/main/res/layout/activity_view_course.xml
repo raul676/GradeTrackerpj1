@@ -61,8 +61,4 @@
         android:text="Main Menu"
         android:id="@+id/main_menu_course"/>
 
-
-
-
-
 </LinearLayout>

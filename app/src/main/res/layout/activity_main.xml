@@ -76,6 +76,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
         android:text="Create Login"
-        android:id="@+id/create_login_button"/>
+        android:id="@+id/create_login_button_main"/>
 
 </LinearLayout>
