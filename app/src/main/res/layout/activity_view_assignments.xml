@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_secondary"
         android:gravity="center"
-        android:text="These are your enrolled courses"
+        android:text="Click on a course to see only its assignments"
         android:textSize="25dp" />
 
     <androidx.recyclerview.widget.RecyclerView
