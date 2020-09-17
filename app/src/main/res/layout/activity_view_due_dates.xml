@@ -31,7 +31,8 @@
         android:id="@+id/recycler_view_2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#A6CFD5" />
 
     <TextView
         android:layout_width="match_parent"
@@ -40,30 +41,35 @@
         android:background="@color/design_default_color_secondary"
         android:text="Select the Course you'd like to enroll in. Please enter the correct course ID to enroll in course."/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/design_default_color_primary_dark"
-        android:text="Enter ID Here"/>
     <EditText
+        android:id="@+id/course_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/course_id"/>
+        android:hint="ENTER ID HERE" />
+
     <Button
+        android:id="@+id/select_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
         android:text="Select course"
-        android:id="@+id/select_course"/>
+        android:textColor="#DBFCFF" />
+
     <Button
+        android:id="@+id/confirm_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
         android:text="Confirm course"
-        android:id="@+id/confirm_course"/>
+        android:textColor="#DBFCFF" />
+
     <Button
+        android:id="@+id/main_menu_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
         android:text="Main Menu"
-        android:id="@+id/main_menu_course"/>
+        android:textColor="#DBFCFF" />
 
 
 

@@ -1,4 +1,3 @@
-
 package com.example.gradetracker_pj1;
 
 import android.content.Context;
@@ -25,16 +24,19 @@ import static org.junit.Assert.assertTrue;
 
 public class DeleteAssignmentTest {
 
-    // private DeleteAssignment deleteAssignment;
 
+    /** on create test, gets the context (database) required to do test  */
     @Before
     public void createDB(){
 
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        GradeDao dao = GradeRoom.getGradeRoom(appContext).dao();
-        assertEquals("com.example.gradetracker_pj1", appContext.getPackageName());
-    }
+            Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+            GradeDao dao = GradeRoom.getGradeRoom(appContext).dao();
+            assertEquals("com.example.gradetracker_pj1", appContext.getPackageName());
+        }
 
+    /** testing on click when deletion occurs by adding an assignment to a list then deleting assignment and checking if the
+     * list is empty
+     */
     @Test
     public void OnClick() {
 
@@ -49,11 +51,8 @@ public class DeleteAssignmentTest {
         GradeDao dao = GradeRoom.getGradeRoom(deleteAssignment).dao();
         dao.deleteAssignment(assignment1);
 
-
-
         assertTrue(!assignmentList.isEmpty());
-        //assertNull(assignment1);
-        //private Context deleteAssignment = InstrumentationRegistry.getInstrumentation().getTargetContext();
+
 
     }
 }

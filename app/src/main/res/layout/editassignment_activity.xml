@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A6CFD5">
 
 
     <TextView
@@ -20,58 +21,45 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary"
-        android:gravity="center"
-        android:text="Enter ID Here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
-
 
     <Button
         android:id="@+id/enter_course_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="520dp"
-        android:text="Edit Assignment"
+        android:layout_width="351dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="536dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Search Assignment"
+        android:textColor="#DBFCFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_edit_assignment"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="211dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="420dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary"
-        android:gravity="center"
-        android:text="Edit Due Date"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
         android:id="@+id/edit_due_date"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
+        android:layout_width="404dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="343dp"
+        android:layout_marginBottom="344dp"
+        android:hint="EDIT DUE DATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,60 +68,64 @@
 
     <EditText
         android:id="@+id/edit_assignment_id"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
+        android:layout_width="408dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="596dp"
+        android:hint="EDIT ID HERE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary"
-        android:gravity="center"
-        android:text="Edit Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
         android:id="@+id/edit_details"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
+        android:layout_width="408dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginBottom="284dp"
+        android:hint="EDIT DETAILS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/edit_assignment_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="216dp"
+        android:layout_width="361dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="466dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="217dp"
+        android:background="@drawable/rounded_corners"
         android:text="Confirm Assignment"
+        android:textColor="#DBFCFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BackBtn_2"
-        android:layout_width="81dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="216dp"
+        android:layout_width="114dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="631dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/rounded_corners"
         android:text="BACK"
+        android:textColor="#DBFCFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

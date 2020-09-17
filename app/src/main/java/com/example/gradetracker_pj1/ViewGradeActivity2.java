@@ -32,6 +32,7 @@ import org.w3c.dom.Text;
 public class ViewGradeActivity2 extends  AppCompatActivity{
     List <Grade> grades;
     List<GradeCategory>gradeCategories;
+
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         Log.d("LoginActivity", "onCreate called");
@@ -42,18 +43,21 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
         TextView msg = findViewById(R.id.grade_text_course);
         msg.setText("Here are you grades for course: " + ViewGradeActivity.course_id_sat);
 
+        /** A recycler view to get the grades for the corresponding course the user has input*/
         grades = GradeRoom.getGradeRoom(this).dao().searchGrades(ViewGradeActivity.course_id_sat,MainActivity.userid);
         Log.d("ViewCourseActivity", "Courses's" + grades.size());
         RecyclerView rv = findViewById(R.id.recycler_view_grades_2);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new ViewGradeActivity2.Adapter());
 
+/** A recycler view to get the grade categories for the corresponding course the user has input*/
         gradeCategories = GradeRoom.getGradeRoom(this).dao().searchGradeCategory(ViewGradeActivity.course_id_sat);
         Log.d("ViewCourseActivity", "Courses's" + gradeCategories.size());
         RecyclerView rv2 = findViewById(R.id.recycler_view_grades_category);
         rv2.setLayoutManager(new LinearLayoutManager(this));
         rv2.setAdapter(new ViewGradeActivity2.Adapter2());
 
+        /** An array list with the users grades the grades are added with the total score*/
         String letter_grade;
         ArrayList<Integer> listgrade = new ArrayList<>();
         int total =0;
@@ -65,6 +69,7 @@ public class ViewGradeActivity2 extends  AppCompatActivity{
             total = total + listgrade.get(i);
         }
 
+        /**A message to show the user their final grade for a course */
         TextView msg2 = findViewById(R.id.grade_letter);
         total = total/ grades.size();
        String final_letter_grade =  returnLetterGrade(total);

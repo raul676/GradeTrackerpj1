@@ -43,7 +43,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        //view assignments
+
         assignment_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        //view grades
+
         gradesView_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +62,7 @@ public class MainMenu extends AppCompatActivity {
         });
 
 
-      //change this to logout
+
       back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

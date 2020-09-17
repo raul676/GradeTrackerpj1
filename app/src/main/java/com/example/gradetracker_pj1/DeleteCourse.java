@@ -40,10 +40,12 @@ public class DeleteCourse extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("DeleteCourse", "Enter the Course id");
 
+                /**Finding the course Id by parsing the string to an int */
                 EditText id = findViewById(R.id.courseID);
                 String course = id.getText().toString();
                 int course_id =Integer.parseInt(course);
 
+                /**A simple try catch to test the parsing of an string to an int */
                 try {
                     Integer.parseInt(course);
                 } catch (NumberFormatException e ){
@@ -53,7 +55,7 @@ public class DeleteCourse extends AppCompatActivity {
                 GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                 courses = GradeRoom.getGradeRoom(DeleteCourse.this).dao().getAllCourses();
                 Course course1 = dao.searchCourse(course_id);
-
+/** if the course is not not the course will be deleted along with the grades */
                 if (course != null) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(DeleteCourse.this);
@@ -61,10 +63,10 @@ public class DeleteCourse extends AppCompatActivity {
                     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //deleting
+
                             GradeDao dao = GradeRoom.getGradeRoom(DeleteCourse.this).dao();
                             dao.deleteCourse(course1);
-                            //dao.deleteAssignment(course1);
+                            dao.deleteGradeCategory(course1);
                             Log.d("DeleteCourse", "deletingcourse");
                             Intent intent = new Intent(DeleteCourse.this, MainMenu.class);
                             startActivity(intent);
@@ -78,6 +80,14 @@ public class DeleteCourse extends AppCompatActivity {
             }
 
 
+        });
+        /** Returns the user back to the main page */
+        Button backBtn = findViewById(R.id.back_button);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
 
         Button back = findViewById(R.id.back_button_delete);

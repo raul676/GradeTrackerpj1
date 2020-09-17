@@ -7,7 +7,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AddCourseTest {
-
+    /** A unit test to test add course by checking the values of the new course by
+     * asserting the values are equal
+     */
     @Test
     public void onCreate() {
 

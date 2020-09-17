@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A6CFD5"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -19,63 +20,68 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:background="#5226EA"
+            app:srcCompat="@drawable/icons8_homework" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:scaleY="2"
         android:scaleX="2"
-        android:text="Welcome to Grade App!"/>
+        android:scaleY="2"
+        android:text="Welcome to Grade App!"
+        android:textColor="#F56476"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Welcome! Please login to proceed by entering in a correct username and password. "/>
+        android:text="Welcome! Please login to proceed by entering in a correct username and password. " />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/username_text"
-        android:text="Username"/>
     <EditText
+        android:id="@+id/username_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/username_main"/>
+        android:hint="USERNAME"
+        android:textSize="24sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/password_text"
-        android:text="Password"/>
     <EditText
+        android:id="@+id/password_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password_main"/>
- 
-     <Button
+        android:hint="PASSWORD"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/loginbutton_main"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
+        android:background="@drawable/rounded_corners"
+
         android:text="Login"
-        android:id="@+id/loginbutton_main"/>
+        android:textColor="#DBFCFF" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:text="   "/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text=" If you don't have a login, please create one by pressing the Create Login Button"/>
+        android:text="   " />
 
     <Button
+        android:id="@+id/create_login_button"
         android:layout_width="273dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
-        android:text="Create Login"
-        android:id="@+id/create_login_button_main"/>
+        android:background="@drawable/rounded_corners"
+
+        android:text="CREATE NEW LOGIN"
+        android:textColor="#DBFCFF" />
 
 </LinearLayout>
